@@ -10,10 +10,10 @@ export default function Logo() {
     >
       <img
         className="klw-logo__img"
-        src="/assets/images/logo.jpg"
+        src="/assets/images/logo.svg"
         alt="RecycleNow logo"
-        width="668"
-        height="291"
+        width="400"
+        height="105"
       />
     </a>
   );

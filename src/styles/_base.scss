@@ -5,6 +5,10 @@
   font-size: 16px;
   line-height: $line-height;
 
+  * {
+    box-sizing: border-box;
+  }
+
   h1,
   h2,
   h3,
@@ -14,11 +18,27 @@
     font-family: $heading-font-family;
     font-weight: 500;
     line-height: $heading-line-height;
+    margin-bottom: $spacing-vertical;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.2em;
   }
 
   a {
     color: $link-color;
     text-decoration: none;
+    padding: $spacing-vertical-sm $spacing-horizontal-sm; // Increase touch target
+    margin: (-$spacing-vertical-sm) (-$spacing-horizontal-sm); // offset layout
+    transition: color .2s ease-in-out;
 
     &:hover {
       color: $link-color-hover;

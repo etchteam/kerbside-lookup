@@ -8,6 +8,7 @@
 
   @include base;
 
+  @import '../components/composition/Grid/grid';
   @import '../components/composition/FormGroup/form-group';
 
   @import '../components/canvas/Container/container';

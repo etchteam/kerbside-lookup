@@ -1,22 +1,22 @@
 // Palette
 
-$shade: #9b9081;
-$shade-darkest: darken($shade, 35%);
-$shade-darker: darken($shade, 25%);
-$shade-dark: darken($shade, 15%);
-$shade-mid: $shade;
-$shade-light: lighten($shade, 20%);
-$shade-lighter: lighten($shade, 36.5%);
-$shade-lightest: lighten($shade, 40%);
+$color-shade: #9b9081;
+$color-shade-darkest: darken($color-shade, 35%);
+$color-shade-darker: darken($color-shade, 25%);
+$color-shade-dark: darken($color-shade, 15%);
+$color-shade-mid: $color-shade;
+$color-shade-light: lighten($color-shade, 20%);
+$color-shade-lighter: lighten($color-shade, 36.5%);
+$color-shade-lightest: lighten($color-shade, 40%);
 
 // Alerts
-$alert-danger: #bc3e31;
-$alert-warning: #856514;
-$alert-success: #5a781d;
-$alert-info: #2574a9;
+$color-alert-danger: #bc3e31;
+$color-alert-warning: #856514;
+$color-alert-success: #5a781d;
+$color-alert-info: #2574a9;
 
-$brand-primary:  #8BC63E;
-$brand-secondary: #5D8529;
+$color-brand-primary:  #8BC63E;
+$color-brand-secondary: #5D8529;
 
 // $base-outline:          1px solid rgba($base-link-color, 0.5);
 // $focus-border:          1px solid rgba($base-link-color, 0.5);
@@ -24,11 +24,11 @@ $brand-secondary: #5D8529;
 // $base-shadow:           0 0 .25em rgba(0,0,0,0.15);
 
 // Base
-$body-background: $shade-lighter;
-$body-color: $shade-dark;
+$body-background: $color-shade-lighter;
+$body-color: $color-shade-dark;
 
 // Borders
-$border: 1px solid $shade-light;
+$border: 1px solid $color-shade-light;
 $border-radius: 4px;
 
 // Typography
@@ -36,7 +36,7 @@ $font-family: helvetica, arial, sans-serif;
 $line-height: 1.5;
 
 // Headings
-$heading-color: $shade-darkest;
+$heading-color: $color-shade-darkest;
 $heading-font-family: Futura, Trebuchet MS, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 $heading-line-height: 1.25;
 

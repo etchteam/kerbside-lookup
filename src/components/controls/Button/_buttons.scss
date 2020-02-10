@@ -1,0 +1,20 @@
+.klw-button {
+  appearance: none;
+  background: $color-brand-secondary;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  color: #fff;
+  font-size: 1em;
+  line-height: normal;
+  min-width: 7.5em;
+  padding: $spacing-vertical-sm $spacing-horizontal;
+  transition: background-color .2s ease-in-out;
+
+  &:hover {
+    background: tint($color-brand-secondary, 5%);
+  }
+
+  &:active {
+    background: shade($color-brand-secondary, 5%);
+  }
+}

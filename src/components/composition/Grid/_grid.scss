@@ -1,0 +1,10 @@
+.klw-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: (-$spacing-vertical-sm) (-$spacing-horizontal-sm);
+
+  &__item {
+    flex: 1 1 auto;
+    padding: $spacing-vertical-sm $spacing-horizontal-sm;
+  }
+}

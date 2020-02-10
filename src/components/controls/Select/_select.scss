@@ -1,0 +1,41 @@
+.klw-select {
+  background: #fff;
+  border: $border;
+  border-radius: $border-radius;
+  color: $body-color;
+  position: relative;
+
+  &__select {
+    appearance: none;
+    background: none;
+    border: 0 none;
+    font-size: 1em;
+    line-height: normal;
+    overflow: hidden;
+    padding: $spacing-vertical-sm $spacing-horizontal;
+    padding-right: 3.5em;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__suffix {
+    border-left: $border;
+    bottom: 0;
+    padding: $spacing-vertical-sm $spacing-horizontal-sm;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2.5em;
+    z-index: 0;
+
+    svg {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

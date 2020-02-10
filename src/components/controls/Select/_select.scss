@@ -4,6 +4,15 @@
   border-radius: $border-radius;
   color: $body-color;
   position: relative;
+  transition: border-color .2s ease-in-out;
+
+  &--success {
+    border-color: $color-alert-success;
+  }
+
+  &--danger {
+    border-color: $color-alert-danger;
+  }
 
   &__select {
     appearance: none;

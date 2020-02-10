@@ -1,8 +1,9 @@
 import { h } from 'preact';
+import { node, string } from 'prop-types';
 
-export default function Select({ children, ...props }) {
+export default function Select({ children, state, ...props }) {
   return (
-    <div className="klw-select">
+    <div className={`klw-select klw-select--${state}`}>
       <select
         className="klw-select__select"
         {...props}
@@ -17,3 +18,13 @@ export default function Select({ children, ...props }) {
     </div>
   );
 }
+
+Select.propTypes = {
+  children: node.isRequired,
+  state: string,
+};
+
+Select.defaultProps = {
+  state: 'default',
+};
+

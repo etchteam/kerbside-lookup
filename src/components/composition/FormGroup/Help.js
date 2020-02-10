@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { node } from 'prop-types';
 
-export default function Help({ children, state }) {
+export default function Help({ children, state, ...props }) {
   return (
     <div className={`klw-form-group__help klw-form-group__help--${state}`} {...props}>
       {children}

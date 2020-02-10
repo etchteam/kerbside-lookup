@@ -1,6 +1,7 @@
 import { h } from 'preact';
 
 import Control from './Control';
+import Help from './Help';
 import Label from './Label';
 
 export default function FormGroup({ children }) {
@@ -16,4 +17,5 @@ FormGroup.propTypes = {
 };
 
 FormGroup.Control = Control;
+FormGroup.Help = Help;
 FormGroup.Label = Label;

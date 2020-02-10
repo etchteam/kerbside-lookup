@@ -17,10 +17,20 @@ export default class Form extends Component {
     this.state = {
       postcode: '',
       material: '',
+      isValidating: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.isValid = this.isValid.bind(this);
+  }
+
+  getState(field) {
+    if (this.state[field] !== '') return 'success';
+
+    if (this.state.isValidating && this.state[field] === '') return 'danger';
+
+    return 'default';
   }
 
   handleChange(field, e) {
@@ -34,13 +44,22 @@ export default class Form extends Component {
     const { loadRoute } = this.props;
 
     // Validation
+    this.setState({ isValidating: true });
 
     // Go to the success page
-    loadRoute('success');
+    if (this.isValid()) {
+      loadRoute('success');
+    }
+  }
+
+  isValid() {
+    const { postcode, material } = this.state;
+
+    return postcode !== '' && material !== '';
   }
 
   render() {
-    const { postcode, material } = this.state;
+    const { postcode, material, isValidating } = this.state;
     return (
       <Container>
         <form method="GET" action="" onSubmit={this.handleSubmit}>
@@ -57,9 +76,15 @@ export default class Form extends Component {
                     name="postcode"
                     placeholder="Enter a postcode..."
                     value={postcode}
+                    state={this.getState('postcode')}
                     onInput={(e) => this.handleChange('postcode', e)}
                   />
                 </FormGroup.Control>
+                {isValidating && postcode === '' ? (
+                  <FormGroup.Help>
+                    Please enter a UK postcode
+                  </FormGroup.Help>
+                ) : null}
               </FormGroup>
             </Grid.Item>
             <Grid.Item style={{ flexBasis: '300px' }}>
@@ -71,12 +96,18 @@ export default class Form extends Component {
                     name="material"
                     value={material}
                     onInput={(e) => this.handleChange('material', e)}
+                    state={this.getState('material')}
                   >
                     <option value="">Select material</option>
                     <option value="potatoes">Potatoes</option>
                     <option value="potatoes">Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes</option>
                   </Select>
                 </FormGroup.Control>
+                {isValidating && material === '' ? (
+                  <FormGroup.Help>
+                    Please choose a material to check
+                  </FormGroup.Help>
+                ) : null}
               </FormGroup>
             </Grid.Item>
             <Grid.Item>

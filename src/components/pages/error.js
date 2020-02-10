@@ -7,7 +7,7 @@ import Title from '../content/Title';
 export default function Error({ title, message }) {
   return (
     <Container>
-      <Title as="h2">{title || 'Oops'}</Title>
+      <Title as="h2" state="danger">{title || 'Oops'}</Title>
 
       <p>{message || 'Something went wrong when trying to retrieve your results.'}</p>
 

@@ -18,7 +18,7 @@
     font-family: $heading-font-family;
     font-weight: 500;
     line-height: $heading-line-height;
-    margin-bottom: $spacing-vertical;
+    margin-bottom: $spacing-vertical-sm;
   }
 
   h1 {
@@ -31,6 +31,10 @@
 
   h3 {
     font-size: 1.2em;
+  }
+
+  p {
+    margin-bottom: $spacing-vertical;
   }
 
   a {

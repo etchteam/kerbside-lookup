@@ -1,0 +1,13 @@
+.klw-title {
+  &--info {
+    color: $color-alert-info;
+  }
+
+  &--success {
+    color: $color-alert-success;
+  }
+
+  &--danger {
+    color: $color-alert-danger;
+  }
+}

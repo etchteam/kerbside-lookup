@@ -1,0 +1,5 @@
+.klw-form-group {
+  &__label {
+    @include sr-only;
+  }
+}

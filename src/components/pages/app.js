@@ -4,6 +4,8 @@ import Form from './form';
 import Success from './success';
 import Error from './error';
 
+import '../../styles/main.scss';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -11,17 +13,27 @@ export default class App extends Component {
     this.state = {
       route: 'form',
     };
+
+    this.loadRoute = this.loadRoute.bind(this);
+  }
+
+  loadRoute(route) {
+    this.setState({ route });
   }
 
   render() {
     const { route } = this.state;
 
     const routes = {
-      form: <Form />,
-      success: <Success />,
-      error: <Error />,
+      form: <Form loadRoute={this.loadRoute} />,
+      success: <Success loadRoute={this.loadRoute} />,
+      error: <Error loadRoute={this.loadRoute} />,
     };
 
-    return routes[route];
+    return (
+      <div id="klw-app">
+        {routes[route] || routes.error}
+      </div>
+    );
   }
 }

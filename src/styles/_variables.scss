@@ -1,0 +1,56 @@
+// Palette
+
+$shade: #9b9081;
+$shade-darkest: darken($shade, 35%);
+$shade-darker: darken($shade, 25%);
+$shade-dark: darken($shade, 15%);
+$shade-mid: $shade;
+$shade-light: lighten($shade, 20%);
+$shade-lighter: lighten($shade, 36.5%);
+$shade-lightest: lighten($shade, 40%);
+
+// Alerts
+$alert-danger: #bc3e31;
+$alert-warning: #856514;
+$alert-success: #5a781d;
+$alert-info: #2574a9;
+
+$brand-primary:  #8BC63E;
+$brand-secondary: #5D8529;
+
+// $base-outline:          1px solid rgba($base-link-color, 0.5);
+// $focus-border:          1px solid rgba($base-link-color, 0.5);
+// $focus-shadow:          0 0 4px $base-link-color;
+// $base-shadow:           0 0 .25em rgba(0,0,0,0.15);
+
+// Base
+$body-background: $shade-lighter;
+$body-color: $shade-dark;
+
+// Borders
+$border: 1px solid $shade-light;
+$border-radius: 4px;
+
+// Typography
+$font-family: helvetica, arial, sans-serif;
+$line-height: 1.5;
+
+// Headings
+$heading-color: $shade-darkest;
+$heading-font-family: Futura, Trebuchet MS, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+$heading-line-height: 1.25;
+
+// Links
+$link-color: #007faa;
+$link-color-hover: darken($link-color, 5%);
+
+// Spacing
+
+$spacing-vertical: 1em;
+$spacing-horizontal: 1em;
+
+$spacing-vertical-sm: .5em;
+$spacing-horizontal-sm: .5em;
+
+$spacing-vertical-fluid: 5%;
+$spacing-horizontal-fluid: 5%;

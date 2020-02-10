@@ -1,0 +1,9 @@
+.klw-list {
+  list-style-type: none;
+  margin: 0 0 $spacing-vertical 0;
+  padding: 0;
+
+  > * + * {
+    margin-top: $spacing-vertical;
+  }
+}

@@ -1,0 +1,18 @@
+.klw-recycling-container {
+  align-items: center;
+  display: flex;
+
+  &__image {
+    margin-right: $spacing-horizontal;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    font-size: .875em;
+    min-width: 0;
+
+    p {
+      margin: 0;
+    }
+  }
+}

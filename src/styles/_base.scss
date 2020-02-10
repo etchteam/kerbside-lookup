@@ -21,6 +21,18 @@
     margin-bottom: $spacing-vertical-sm;
   }
 
+  h1,
+  h2 {
+    margin-bottom: $spacing-vertical-sm;
+  }
+
+  h3,
+  h4,
+  h5 {
+    margin-bottom: $spacing-vertical-sm / 2;
+  }
+
+
   h1 {
     font-size: 3em;
   }

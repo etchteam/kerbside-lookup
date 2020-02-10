@@ -32,7 +32,7 @@ export default class App extends Component {
 
     return (
       <div id="klw-app">
-        {routes.success || routes[route] || routes.error}
+        {routes[route] || routes.error}
       </div>
     );
   }

@@ -16,10 +16,10 @@ export default function Transition({ children, enter, leave }) {
 Transition.propTypes = {
   children: node.isRequired,
   enter: bool,
-  leave: bool,
+  leave: bool
 };
 
 Transition.defaultProps = {
   enter: false,
-  leave: false,
+  leave: false
 };

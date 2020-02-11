@@ -10,5 +10,5 @@ export default function Container({ children }) {
 }
 
 Container.propTypes = {
-  children: node.isRequired,
+  children: node.isRequired
 };

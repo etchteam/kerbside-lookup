@@ -13,7 +13,7 @@ export default function Title({ children, as, state, ...props }) {
 Title.propTypes = {
   as: string,
   children: node.isRequired,
-  state: string,
+  state: string
 };
 
 Title.defaultProps = {

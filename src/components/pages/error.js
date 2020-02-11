@@ -24,5 +24,5 @@ export default function Error({ title, message, loadRoute }) {
 }
 
 Error.propTypes = {
-  loadRoute: func.isRequired,
+  loadRoute: func.isRequired
 };

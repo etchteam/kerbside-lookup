@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { node } from 'prop-types';
 
 export default function Control({ children }) {
   return (
@@ -9,5 +10,5 @@ export default function Control({ children }) {
 }
 
 Control.propTypes = {
-  children: node.isRequired,
+  children: node.isRequired
 };

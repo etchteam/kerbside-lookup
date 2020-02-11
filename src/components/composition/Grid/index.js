@@ -12,8 +12,7 @@ export default function Grid({ children }) {
 }
 
 Grid.propTypes = {
-  children: node.isRequired,
+  children: node.isRequired
 };
 
 Grid.Item = Item;
-

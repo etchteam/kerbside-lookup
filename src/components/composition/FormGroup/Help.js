@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { node } from 'prop-types';
+import { node, string } from 'prop-types';
 
 export default function Help({ children, state, ...props }) {
   return (
@@ -15,5 +15,5 @@ Help.propTypes = {
 };
 
 Help.defaultProps = {
-  state: 'danger',
+  state: 'danger'
 };

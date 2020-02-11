@@ -1,3 +1,5 @@
+import 'promise-polyfill/src/polyfill';
+import 'whatwg-fetch';
 import { h, Component } from 'preact';
 import { array, string, bool } from 'prop-types';
 
@@ -16,7 +18,7 @@ export default class App extends Component {
     this.state = {
       route: 'form',
       enter: false,
-      leave: false,
+      leave: false
     };
 
     this.loadRoute = this.loadRoute.bind(this);
@@ -33,7 +35,6 @@ export default class App extends Component {
         });
       }, 500);
     });
-
   }
 
   render() {
@@ -52,7 +53,7 @@ export default class App extends Component {
         />
       ),
       success: <Success loadRoute={this.loadRoute} />,
-      error: <Error loadRoute={this.loadRoute} />,
+      error: <Error loadRoute={this.loadRoute} />
     };
 
     return (
@@ -70,7 +71,7 @@ App.propTypes = {
   postcode: string,
   button: string,
   placeholder: string,
-  css: bool,
+  css: bool
 };
 
 App.defaultProps = {
@@ -78,5 +79,5 @@ App.defaultProps = {
   postcode: '',
   button: 'Submit',
   placeholder: 'Enter a postcode...',
-  css: true,
+  css: true
 };

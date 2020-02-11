@@ -11,9 +11,9 @@ export default function Input({ state, ...props }) {
 }
 
 Input.propTypes = {
-  state: string,
+  state: string
 };
 
 Input.defaultProps = {
-  state: 'default',
+  state: 'default'
 };

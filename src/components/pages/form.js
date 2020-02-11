@@ -17,7 +17,7 @@ export default class Form extends Component {
     this.state = {
       postcode: props.postcode,
       material: '',
-      isValidating: false,
+      isValidating: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -60,7 +60,7 @@ export default class Form extends Component {
 
   render() {
     const { postcode, material, isValidating } = this.state;
-    const { materials, postcode: prefilledPostcode, button, placeholder } = this.props;
+    const { postcode: prefilledPostcode, button, placeholder } = this.props;
     return (
       <Container>
         <form method="GET" action="" onSubmit={this.handleSubmit}>
@@ -134,5 +134,5 @@ Form.propTypes = {
   materials: array.isRequired,
   postcode: string.isRequired,
   button: string.isRequired,
-  placeholder: string.isRequired,
+  placeholder: string.isRequired
 };

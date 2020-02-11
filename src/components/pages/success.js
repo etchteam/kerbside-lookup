@@ -71,5 +71,5 @@ export default function Success({ loadRoute }) {
 }
 
 Success.propTypes = {
-  loadRoute: func.isRequired,
+  loadRoute: func.isRequired
 };

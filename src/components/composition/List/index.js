@@ -12,7 +12,7 @@ export default function List({ children }) {
 }
 
 List.propTypes = {
-  children: node.isRequired,
+  children: node.isRequired
 };
 
 List.Item = Item;

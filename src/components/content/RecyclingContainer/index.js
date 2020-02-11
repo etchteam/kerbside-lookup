@@ -16,3 +16,9 @@ export default function RecyclingContainer({ title, image, content }) {
     </div>
   );
 }
+
+RecyclingContainer.propTypes = {
+  title: string.isRequired,
+  image: string.isRequired,
+  content: string.isRequired
+};

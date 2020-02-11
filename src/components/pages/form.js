@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import { func } from 'prop-types';
+import { func, array, string } from 'prop-types';
 
 import Grid from '../composition/Grid';
 import FormGroup from '../composition/FormGroup';
@@ -15,7 +15,7 @@ export default class Form extends Component {
     super(props);
 
     this.state = {
-      postcode: '',
+      postcode: props.postcode,
       material: '',
       isValidating: false,
     };
@@ -60,34 +60,38 @@ export default class Form extends Component {
 
   render() {
     const { postcode, material, isValidating } = this.state;
+    const { materials, postcode: prefilledPostcode, button, placeholder } = this.props;
+    console.log('form', this.props);
     return (
       <Container>
         <form method="GET" action="" onSubmit={this.handleSubmit}>
           <Title as="h2">What can you recycle at home?</Title>
 
           <Grid>
-            <Grid.Item style={{ flexBasis: '200px' }}>
-              <FormGroup>
-                <FormGroup.Label for="postcode">Postcode</FormGroup.Label>
-                <FormGroup.Control>
-                  <Input
-                    type="text"
-                    id="postcode"
-                    name="postcode"
-                    placeholder="Enter a postcode..."
-                    autocomplete="shipping postal-code"
-                    value={postcode}
-                    state={this.getState('postcode')}
-                    onInput={(e) => this.handleChange('postcode', e)}
-                  />
-                </FormGroup.Control>
-                {isValidating && postcode === '' ? (
-                  <FormGroup.Help>
-                    Please enter a UK postcode
-                  </FormGroup.Help>
-                ) : null}
-              </FormGroup>
-            </Grid.Item>
+            {!prefilledPostcode ? (
+              <Grid.Item style={{ flexBasis: '200px' }}>
+                <FormGroup>
+                  <FormGroup.Label for="postcode">Postcode</FormGroup.Label>
+                  <FormGroup.Control>
+                    <Input
+                      type="text"
+                      id="postcode"
+                      name="postcode"
+                      placeholder={placeholder}
+                      autocomplete="shipping postal-code"
+                      value={postcode}
+                      state={this.getState('postcode')}
+                      onInput={(e) => this.handleChange('postcode', e)}
+                    />
+                  </FormGroup.Control>
+                  {isValidating && postcode === '' ? (
+                    <FormGroup.Help>
+                      Please enter a UK postcode
+                    </FormGroup.Help>
+                  ) : null}
+                </FormGroup>
+              </Grid.Item>
+            ) : null}
             <Grid.Item style={{ flexBasis: '300px' }}>
               <FormGroup>
                 <FormGroup.Label for="material">Material</FormGroup.Label>
@@ -114,7 +118,7 @@ export default class Form extends Component {
             <Grid.Item>
               <FormGroup>
                 <FormGroup.Control>
-                  <Button type="submit">Submit</Button>
+                  <Button type="submit">{button}</Button>
                   <Logo />
                 </FormGroup.Control>
               </FormGroup>
@@ -128,4 +132,8 @@ export default class Form extends Component {
 
 Form.propTypes = {
   loadRoute: func.isRequired,
+  materials: array.isRequired,
+  postcode: string.isRequired,
+  button: string.isRequired,
+  placeholder: string.isRequired,
 };

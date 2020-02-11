@@ -3,7 +3,7 @@
 @import 'mixins';
 @import 'base';
 
-#klw-app {
+#klw-app.klw-app-include-css {
   @import '../../node_modules/reset-css/sass/reset';
 
   @include base;

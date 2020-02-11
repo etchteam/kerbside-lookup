@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import { array, string, bool } from 'prop-types';
 
 import Transition from '../canvas/Transition';
 
@@ -37,15 +38,25 @@ export default class App extends Component {
 
   render() {
     const { route, enter, leave } = this.state;
+    // From the habitat options
+    const { materials, postcode, button, placeholder, css } = this.props;
 
     const routes = {
-      form: <Form loadRoute={this.loadRoute} />,
+      form: (
+        <Form
+          loadRoute={this.loadRoute}
+          materials={materials}
+          postcode={postcode}
+          button={button}
+          placeholder={placeholder}
+        />
+      ),
       success: <Success loadRoute={this.loadRoute} />,
       error: <Error loadRoute={this.loadRoute} />,
     };
 
     return (
-      <div id="klw-app">
+      <div id="klw-app" className={`klw-app-${css ? 'include' : 'exclude'}-css`}>
         <Transition enter={enter} leave={leave}>
           {routes[route] || routes.error}
         </Transition>
@@ -53,3 +64,19 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  materials: array,
+  postcode: string,
+  button: string,
+  placeholder: string,
+  css: bool,
+};
+
+App.defaultProps = {
+  materials: [],
+  postcode: '',
+  button: 'Submit',
+  placeholder: 'Enter a postcode...',
+  css: true,
+};

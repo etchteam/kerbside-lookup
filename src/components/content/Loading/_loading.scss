@@ -1,0 +1,26 @@
+@keyframes klw-loading-pulse {
+  0% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.25;
+  }
+}
+
+.klw-loading {
+  animation: klw-loading-pulse 2.5s ease-in-out infinite;
+  color: $color-brand-primary;
+  padding: $spacing-vertical-fluid $spacing-horizontal-fluid;
+
+  svg {
+    display: block;
+    height: 4em;
+    margin: auto;
+    width: 4em;
+  }
+}

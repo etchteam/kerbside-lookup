@@ -8,6 +8,6 @@ import App from "./components/pages/app";
 let _habitat = habitat(App);
 
 _habitat.render({
-  selector: '[data-widget-host="habitat"]',
+  selector: '#wrap-klw',
   clean: true
 });

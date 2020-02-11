@@ -61,7 +61,6 @@ export default class Form extends Component {
   render() {
     const { postcode, material, isValidating } = this.state;
     const { materials, postcode: prefilledPostcode, button, placeholder } = this.props;
-    console.log('form', this.props);
     return (
       <Container>
         <form method="GET" action="" onSubmit={this.handleSubmit}>

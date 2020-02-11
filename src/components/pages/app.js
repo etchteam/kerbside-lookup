@@ -56,7 +56,7 @@ export default class App extends Component {
     };
 
     return (
-      <div id="klw-app" className={`klw-app-${css ? 'include' : 'exclude'}-css`}>
+      <div className={`klw-app-${css ? 'include' : 'exclude'}-css`}>
         <Transition enter={enter} leave={leave}>
           {routes[route] || routes.error}
         </Transition>

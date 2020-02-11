@@ -1,16 +1,19 @@
 import { h } from 'preact';
+import { func } from 'prop-types';
 
 import List from '../composition/List';
 import Container from '../canvas/Container';
 import Logo from '../content/Logo';
 import Title from '../content/Title';
 import RecyclingContainer from '../content/RecyclingContainer';
+import Back from '../controls/Back';
 
-export default function Success() {
+export default function Success({ loadRoute }) {
   // No kerbside collection
   if (true) {
     return (
       <Container>
+        <Back onClick={() => loadRoute('form')}>Search again</Back>
         <Title as="h2" state="info">Visit a local recycling location</Title>
         <p>
           You can't recycle plastic bags at CT1 1XJ, you'll need to take them
@@ -39,6 +42,7 @@ export default function Success() {
   // Kerbside collection
   return (
     <Container>
+      <Back onClick={() => loadRoute('form')}>Search again</Back>
       <Title as="h2" state="success">Good news!</Title>
       <p>You can recycle plastic bags in CT1 1XJ.</p>
 
@@ -65,3 +69,7 @@ export default function Success() {
     </Container>
   );
 }
+
+Success.propTypes = {
+  loadRoute: func.isRequired,
+};

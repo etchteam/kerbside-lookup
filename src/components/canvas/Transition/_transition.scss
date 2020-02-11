@@ -1,0 +1,33 @@
+@keyframes klw-transition-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(1em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes klw-transition-leave {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-1em);
+  }
+}
+
+.klw-transition {
+  &--enter {
+    animation: klw-transition-enter 0.5s ease-in-out 1 forwards;
+  }
+
+  &--leave {
+    animation: klw-transition-leave 0.5s ease-in-out 1 forwards;
+  }
+}

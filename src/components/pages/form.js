@@ -75,6 +75,7 @@ export default class Form extends Component {
                     id="postcode"
                     name="postcode"
                     placeholder="Enter a postcode..."
+                    autocomplete="shipping postal-code"
                     value={postcode}
                     state={this.getState('postcode')}
                     onInput={(e) => this.handleChange('postcode', e)}

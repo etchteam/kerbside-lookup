@@ -7,7 +7,36 @@ import Title from '../content/Title';
 import RecyclingContainer from '../content/RecyclingContainer';
 
 export default function Success() {
-  // Also handle no kerbside lookup
+  // No kerbside collection
+  if (true) {
+    return (
+      <Container>
+        <Title as="h2" state="info">Visit a local recycling location</Title>
+        <p>
+          You can't recycle plastic bags at CT1 1XJ, you'll need to take them
+          to your <a href="https://www.recyclenow.com/local-recycling?rlw-initial-path=places%2Fresults%2FSW1A%202DD%3Fmaterials%3D17%2C29" target="_blank" rel="noopener noreferrer">nearest recycling location</a>
+        </p>
+
+        <p>
+          Here are some things you can recycle:
+        </p>
+
+        <ul>
+          <li>Glass</li>
+          <li>Batteries</li>
+          <li>Cardboard/paper</li>
+          <li>Metal packaging/foil</li>
+          <li>Garden waste</li>
+        </ul>
+
+        <p>Find out more at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a></p>
+
+        <Logo />
+      </Container>
+    );
+  }
+
+  // Kerbside collection
   return (
     <Container>
       <Title as="h2" state="success">Good news!</Title>

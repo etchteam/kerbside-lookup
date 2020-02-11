@@ -60,4 +60,10 @@
       color: $link-color-hover;
     }
   }
+
+  ul {
+    list-style-type: disc;
+    margin-bottom: $spacing-vertical;
+    padding-left: $spacing-horizontal;
+  }
 }

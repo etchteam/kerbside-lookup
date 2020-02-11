@@ -6,6 +6,7 @@
   &__help {
     font-size: .875em;
     margin-top: $spacing-vertical-sm;
+    padding: 0 $spacing-horizontal;
 
     &--success {
       color: $color-alert-success;

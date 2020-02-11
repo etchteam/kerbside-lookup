@@ -1,5 +1,6 @@
 import { h } from 'preact';
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
+import { Text } from 'preact-i18n';
 
 import Container from '../canvas/Container';
 import Logo from '../content/Logo';
@@ -24,5 +25,6 @@ export default function Error({ title, message, loadRoute }) {
 }
 
 Error.propTypes = {
-  loadRoute: func.isRequired
+  loadRoute: func.isRequired,
+  locale: string.isRequired
 };

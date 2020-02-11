@@ -4,6 +4,13 @@
 
   &__image {
     margin-right: $spacing-horizontal;
+    width: 72px;
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
   }
 
   &__content {

@@ -2,6 +2,7 @@ import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 import { h, Component } from 'preact';
 import { array, string, bool } from 'prop-types';
+import { IntlProvider } from 'preact-i18n';
 
 import Transition from '../canvas/Transition';
 
@@ -11,12 +12,15 @@ import Error from './error';
 
 import '../../styles/main.scss';
 
+import welsh from '../../lib/cy.json';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       route: 'form',
+      props: {},
       enter: false,
       leave: false
     };
@@ -24,11 +28,11 @@ export default class App extends Component {
     this.loadRoute = this.loadRoute.bind(this);
   }
 
-  loadRoute(route) {
+  loadRoute(route, props) {
     // Simple page transitions
     this.setState({ leave: true }, () => {
       setTimeout(() => {
-        this.setState({ route, leave: false, enter: true }, () => {
+        this.setState({ route, props, leave: false, enter: true }, () => {
           setTimeout(() => {
             this.setState({ leave: false, enter: false });
           }, 500);
@@ -38,9 +42,9 @@ export default class App extends Component {
   }
 
   render() {
-    const { route, enter, leave } = this.state;
+    const { route, props, enter, leave } = this.state;
     // From the habitat options
-    const { materials, postcode, button, placeholder, css } = this.props;
+    const { materials, postcode, button, placeholder, css, locale } = this.props;
 
     const routes = {
       form: (
@@ -50,18 +54,22 @@ export default class App extends Component {
           postcode={postcode}
           button={button}
           placeholder={placeholder}
+          locale={locale}
+          {...props}
         />
       ),
-      success: <Success loadRoute={this.loadRoute} />,
-      error: <Error loadRoute={this.loadRoute} />
+      success: <Success loadRoute={this.loadRoute} locale={locale} {...props} />,
+      error: <Error loadRoute={this.loadRoute} locale={locale} {...props} />
     };
 
     return (
-      <div className={`klw-app-${css ? 'include' : 'exclude'}-css`}>
-        <Transition enter={enter} leave={leave}>
-          {routes[route] || routes.error}
-        </Transition>
-      </div>
+      <IntlProvider definition={locale === 'cy' ? welsh : {}}>
+        <div className={`klw-app-${css ? 'include' : 'exclude'}-css`}>
+          <Transition enter={enter} leave={leave}>
+            {routes[route] || routes.error}
+          </Transition>
+        </div>
+      </IntlProvider>
     );
   }
 }
@@ -71,7 +79,9 @@ App.propTypes = {
   postcode: string,
   button: string,
   placeholder: string,
-  css: bool
+  css: bool,
+  token: string,
+  locale: string
 };
 
 App.defaultProps = {
@@ -79,5 +89,7 @@ App.defaultProps = {
   postcode: '',
   button: 'Submit',
   placeholder: 'Enter a postcode...',
-  css: true
+  css: true,
+  token: '',
+  locale: 'en'
 };

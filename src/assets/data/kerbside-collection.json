@@ -1,0 +1,21 @@
+{
+	"kerbside_collection": true,
+	"postcode": "CT11XJ",
+	"schemes": [
+		{
+			"icon": "https://rl.recyclenow.com/images/containers/recycle_box_black.png",
+			"name": "Flats",
+			"action": "Place in your black recycling box"
+		},
+		{
+			"icon": "https://rl.recyclenow.com/images/containers/recycle_wheelie_black_blue.png",
+			"name": "Kerbside Properties",
+			"action": "Place in your black wheely bin"
+		}
+	],
+	"available_materials": [
+		"Plastic Bags", "Glass", "Batteries",
+		"Cardboard/paper", "Metal Packaging/foil",
+		"Garden Waste"
+	]
+}

@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { func, array, string } from 'prop-types';
+import { Text } from 'preact-i18n';
 
 import Grid from '../composition/Grid';
 import FormGroup from '../composition/FormGroup';
@@ -35,20 +36,21 @@ export default class Form extends Component {
 
   handleChange(field, e) {
     this.setState({
-      [field]: e.target.value,
+      [field]: e.target.value
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const { loadRoute } = this.props;
+    const { postcode, material } = this.state;
 
     // Validation
     this.setState({ isValidating: true });
 
     // Go to the success page
     if (this.isValid()) {
-      loadRoute('success');
+      loadRoute('success', { postcode, material });
     }
   }
 
@@ -64,13 +66,13 @@ export default class Form extends Component {
     return (
       <Container>
         <form method="GET" action="" onSubmit={this.handleSubmit}>
-          <Title as="h2">What can you recycle at home?</Title>
+          <Title as="h2"><Text id="form.title">What can you recycle at home?</Text></Title>
 
           <Grid>
             {!prefilledPostcode ? (
               <Grid.Item style={{ flexBasis: '200px' }}>
                 <FormGroup>
-                  <FormGroup.Label for="postcode">Postcode</FormGroup.Label>
+                  <FormGroup.Label for="postcode"><Text id="form.postcode.label">Postcode</Text></FormGroup.Label>
                   <FormGroup.Control>
                     <Input
                       type="text"
@@ -85,7 +87,7 @@ export default class Form extends Component {
                   </FormGroup.Control>
                   {isValidating && postcode === '' ? (
                     <FormGroup.Help>
-                      Please enter a UK postcode
+                      <Text id="form.postcode.validation">Please enter a UK postcode</Text>
                     </FormGroup.Help>
                   ) : null}
                 </FormGroup>
@@ -93,7 +95,7 @@ export default class Form extends Component {
             ) : null}
             <Grid.Item style={{ flexBasis: '300px' }}>
               <FormGroup>
-                <FormGroup.Label for="material">Material</FormGroup.Label>
+                <FormGroup.Label for="material"><Text id="form.material.label">Material</Text></FormGroup.Label>
                 <FormGroup.Control>
                   <Select
                     id="material"
@@ -102,14 +104,14 @@ export default class Form extends Component {
                     onInput={(e) => this.handleChange('material', e)}
                     state={this.getState('material')}
                   >
-                    <option value="">Select material</option>
+                    <option value=""><Text id="form.material.placeholder">Select material</Text></option>
                     <option value="potatoes">Potatoes</option>
                     <option value="potatoes">Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes</option>
                   </Select>
                 </FormGroup.Control>
                 {isValidating && material === '' ? (
                   <FormGroup.Help>
-                    Please choose a material to check
+                    <Text id="form.material.validation">Please choose a material to check</Text>
                   </FormGroup.Help>
                 ) : null}
               </FormGroup>
@@ -134,5 +136,6 @@ Form.propTypes = {
   materials: array.isRequired,
   postcode: string.isRequired,
   button: string.isRequired,
-  placeholder: string.isRequired
+  placeholder: string.isRequired,
+  locale: string.isRequired
 };

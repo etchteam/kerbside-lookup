@@ -40,6 +40,7 @@
     "preact": "^8.5.2",
     "preact-compat": "^3.17.0",
     "preact-habitat": "^3.1.0",
+    "preact-i18n": "1.4.1",
     "preact-render-to-string": "^4.1.0",
     "preact-router": "^2.5.7",
     "promise-polyfill": "8.1.3",

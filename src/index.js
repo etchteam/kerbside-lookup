@@ -1,11 +1,13 @@
-let poly = require("preact-cli/lib/lib/webpack/polyfills");
 
-import { h } from "preact";
-import habitat from "preact-habitat";
+/* eslint-disable import/first, no-unused-vars */
+const poly = require('preact-cli/lib/lib/webpack/polyfills');
 
-import App from "./components/pages/app";
+import { h } from 'preact';
+import habitat from 'preact-habitat';
 
-let _habitat = habitat(App);
+import App from './components/pages/app';
+
+const _habitat = habitat(App);
 
 _habitat.render({
   selector: '#wrap-klw',

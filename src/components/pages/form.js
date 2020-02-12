@@ -1,3 +1,4 @@
+/* global fetch */
 import { h, Component } from 'preact';
 import { func, array, string } from 'prop-types';
 import { Text } from 'preact-i18n';
@@ -18,12 +19,29 @@ export default class Form extends Component {
     this.state = {
       postcode: props.postcode,
       material: '',
-      isValidating: false
+      isValidating: false,
+      loading: true,
+      materials: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.isValid = this.isValid.bind(this);
+  }
+
+  componentDidMount() {
+    const { loadRoute, locale } = this.props;
+    fetch(`${process.env.API_HOST}/api/widget/materials?lang=${locale}`).then((response) => {
+      return response.json();
+    }).then((data) => {
+      if (data.error) {
+        loadRoute('error', { message: data.error });
+      } else {
+        this.setState({ materials: data, loading: false });
+      }
+    }).catch(() => {
+      loadRoute('error');
+    });
   }
 
   getState(field) {
@@ -61,7 +79,7 @@ export default class Form extends Component {
   }
 
   render() {
-    const { postcode, material, isValidating } = this.state;
+    const { postcode, material, isValidating, materials, loading } = this.state;
     const { postcode: prefilledPostcode, button, placeholder } = this.props;
     return (
       <Container>
@@ -103,10 +121,14 @@ export default class Form extends Component {
                     value={material}
                     onInput={(e) => this.handleChange('material', e)}
                     state={this.getState('material')}
+                    disabled={loading}
                   >
                     <option value=""><Text id="form.material.placeholder">Select material</Text></option>
-                    <option value="potatoes">Potatoes</option>
-                    <option value="potatoes">Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes Potatoes</option>
+                    {materials.map((item) => {
+                      return (
+                        <option value={item.id}>{item.name}</option>
+                      );
+                    })}
                   </Select>
                 </FormGroup.Control>
                 {isValidating && material === '' ? (

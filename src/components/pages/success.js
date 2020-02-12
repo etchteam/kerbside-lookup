@@ -22,16 +22,18 @@ export default class Success extends Component {
   }
 
   componentDidMount() {
-    const { loadRoute, locale } = this.props;
+    const { loadRoute, locale, postcode } = this.props;
 
-    const urls = [
-      '/assets/data/kerbside-collection.json',
-      '/assets/data/no-kerbside-collection.json',
-      '/assets/data/error.json'
-    ];
+    // const urls = [
+    //   '/assets/data/kerbside-collection.json',
+    //   '/assets/data/no-kerbside-collection.json',
+    //   '/assets/data/error.json'
+    // ];
 
-    // Get a random response
-    const url = urls[Math.floor(Math.random() * urls.length)];
+    // // Get a random response
+    // const url = urls[Math.floor(Math.random() * urls.length)];
+
+    const url = `${process.env.API_HOST}/api/widget/kerbside/${postcode}`;
 
     setTimeout(() => {
       fetch(`${url}?lang=${locale}`).then((response) => {
@@ -63,7 +65,7 @@ export default class Success extends Component {
           <Title as="h2" state="success"><Text id="success.kerbside.title">Good news!</Text></Title>
           <p>
             <Text id="success.kerbside.message" fields={{ material, postcode }}>
-              You can recycle {material} in {postcode}.
+              <span>You can recycle {material} in {postcode}.</span>
             </Text>
           </p>
 

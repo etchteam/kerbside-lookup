@@ -19,6 +19,7 @@
   "author": "Zouhir <zouhir@zouhir.org>",
   "license": "MIT",
   "devDependencies": {
+    "dotenv-webpack": "1.7.0",
     "eslint": "^6.2.2",
     "eslint-config-standard": "14.1.0",
     "eslint-config-standard-preact": "1.1.6",

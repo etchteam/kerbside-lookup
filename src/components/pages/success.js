@@ -1,6 +1,7 @@
 /* global fetch */
 import { h, Component } from 'preact';
 import { func, string } from 'prop-types';
+import { Text, MarkupText } from 'preact-i18n';
 
 import List from '../composition/List';
 import Container from '../canvas/Container';
@@ -21,7 +22,7 @@ export default class Success extends Component {
   }
 
   componentDidMount() {
-    const { loadRoute } = this.props;
+    const { loadRoute, locale } = this.props;
 
     const urls = [
       '/assets/data/kerbside-collection.json',
@@ -33,7 +34,7 @@ export default class Success extends Component {
     const url = urls[Math.floor(Math.random() * urls.length)];
 
     setTimeout(() => {
-      fetch(url).then((response) => {
+      fetch(`${url}?lang=${locale}`).then((response) => {
         return response.json();
       }).then((data) => {
         if (data.error) {
@@ -58,9 +59,13 @@ export default class Success extends Component {
     if (data.kerbside_collection) {
       return (
         <Container>
-          <Back onClick={() => loadRoute('form')}>Search again</Back>
-          <Title as="h2" state="success">Good news!</Title>
-          <p>You can recycle {material} in {postcode}.</p>
+          <Back onClick={() => loadRoute('form')}><Text id="success.back">Search again</Text></Back>
+          <Title as="h2" state="success"><Text id="success.kerbside.title">Good news!</Text></Title>
+          <p>
+            <Text id="success.kerbside.message" fields={{ material, postcode }}>
+              You can recycle {material} in {postcode}.
+            </Text>
+          </p>
 
           <List>
             {data.schemes.map((scheme) => {
@@ -76,7 +81,11 @@ export default class Success extends Component {
             })}
           </List>
 
-          <p>Find out more at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a></p>
+          <p>
+            <MarkupText id="success.more">
+              Find out more at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a>
+            </MarkupText>
+          </p>
 
           <Logo />
         </Container>
@@ -85,15 +94,24 @@ export default class Success extends Component {
 
     return (
       <Container>
-        <Back onClick={() => loadRoute('form')}>Search again</Back>
-        <Title as="h2" state="info">Visit a local recycling location</Title>
+        <Back onClick={() => loadRoute('form')}><Text id="success.back">Search again</Text></Back>
+        <Title as="h2" state="info">
+          <Text id="success.no_kerbside.title">
+            Visit a local recycling location
+          </Text>
+        </Title>
+
         <p>
-          You can't recycle {material} at {postcode}, you'll need to take them
-          to your <a href="https://www.recyclenow.com/local-recycling?rlw-initial-path=places%2Fresults%2FSW1A%202DD%3Fmaterials%3D17%2C29" target="_blank" rel="noopener noreferrer">nearest recycling location</a>
+          <MarkupText id="success.no_kerbside.message" fields={{ postcode, material }}>
+            You can't recycle {material} at {postcode}, you'll need to take them
+            to your <a href={`https://www.recyclenow.com/local-recycling?rlw-initial-path=places%2Fresults%2F${postcode}%3Fmaterials%3D17%2C29`} target="_blank" rel="noopener noreferrer">nearest recycling location</a>
+          </MarkupText>
         </p>
 
         <p>
-          Here are some things you can recycle:
+          <Text id="success.no_kerbside.list_title">
+            Here are some things you can recycle:
+          </Text>
         </p>
 
         <ul>
@@ -102,7 +120,11 @@ export default class Success extends Component {
           ))}
         </ul>
 
-        <p>Find out more at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a></p>
+        <p>
+          <MarkupText id="success.more">
+            Find out more at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a>
+          </MarkupText>
+        </p>
 
         <Logo />
       </Container>

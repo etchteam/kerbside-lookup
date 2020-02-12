@@ -1,4 +1,5 @@
 {
+  "logo": "<a class='klw-logo' href='https://www.recycleforwales.org.uk/cy' rel='noopener noreferrer' target='_blank'><img class='klw-logo__img' src='/assets/images/logo-cy.svg' alt='ailgylchu dros Gymru logo' width='400' height='108' /></a>",
   "form": {
     "title": "Beth allwch chi ei ailgylchu gartref?",
     "postcode": {
@@ -12,9 +13,22 @@
     }
   },
   "error": {
-
+    "back": "Chwilio eto",
+    "title": "Wps",
+    "message": "Aeth rhywbeth o'i le wrth geisio adfer eich canlyniadau.",
+    "more": "Darganfyddwch fwy am ailgylchu yn agos atoch chi wrth <a href='https://www.recycleforwales.org.uk/cy' rel='noopener noreferrer' target='_blank'>Ailgylchu dros Gymru</a>"
   },
   "success": {
-
+    "back": "Chwilio eto",
+    "more": "Darganfyddwch fwy wrth <a href='https://www.recycleforwales.org.uk/cy' rel='noopener noreferrer' target='_blank'>Ailgylchu dros Gymru</a>",
+    "kerbside": {
+      "title": "Newyddion da!",
+      "message": "Gallwch ailgylchu {{material}} yn {{postcode}}"
+    },
+    "no_kerbside": {
+      "title": "Ymweld â lleoliad ailgylchu lleol",
+      "message": "Ni allwch ailgylchu {{material}} yn {{postcode}}, bydd angen i chi fynd â nhw i'ch <a href='https://www.recycleforwales.org.uk/cy/lleoliad-ailgylchu-1?rlw-initial-path=places%2Fresults%2F{{postcode}}%3Fmaterials%3D{{materials}}' target='_blank' rel='noopener noreferrer'>lleoliad ailgylchu agosaf</a>",
+      "list_title": "Dyma rai pethau y gallwch chi eu hailgylchu:"
+    }
   }
 }

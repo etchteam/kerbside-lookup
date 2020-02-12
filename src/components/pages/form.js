@@ -2,6 +2,7 @@
 import { h, Component } from 'preact';
 import { func, array, string } from 'prop-types';
 import { Text } from 'preact-i18n';
+import find from 'lodash/find';
 
 import Grid from '../composition/Grid';
 import FormGroup from '../composition/FormGroup';
@@ -24,6 +25,7 @@ export default class Form extends Component {
       materials: []
     };
 
+    this.filteredMaterials = this.filteredMaterials.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.isValid = this.isValid.bind(this);
@@ -38,9 +40,21 @@ export default class Form extends Component {
         loadRoute('error', { message: data.error });
       } else {
         this.setState({ materials: data, loading: false });
+        if (this.isValid()) this.handleSubmit();
       }
     }).catch(() => {
       loadRoute('error');
+    });
+  }
+
+  filteredMaterials() {
+    const { materials: materialSelection } = this.props;
+    const { materials } = this.state;
+
+    return materials.filter((material) => {
+      return !materialSelection.length ||
+        materialSelection.indexOf(material.id) > -1 ||
+        materialSelection.indexOf(material.name) > -1;
     });
   }
 
@@ -59,28 +73,32 @@ export default class Form extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const { loadRoute } = this.props;
-    const { postcode, material } = this.state;
+    const { postcode, material, materials } = this.state;
 
     // Validation
     this.setState({ isValidating: true });
 
     // Go to the success page
     if (this.isValid()) {
-      loadRoute('success', { postcode, material });
+      const filteredMaterials = this.filteredMaterials();
+      const materialToSend = filteredMaterials.length === 1 ? filteredMaterials[0] : find(materials, { id: Number(material) });
+      loadRoute('success', { postcode, material: materialToSend });
     }
   }
 
   isValid() {
     const { postcode, material } = this.state;
+    const { materials: materialSelection } = this.props;
 
-    return postcode !== '' && material !== '';
+    return postcode !== '' && (material !== '' || materialSelection.length === 1);
   }
 
   render() {
-    const { postcode, material, isValidating, materials, loading } = this.state;
-    const { postcode: prefilledPostcode, button, placeholder } = this.props;
+    const { postcode, material, isValidating, loading } = this.state;
+    const { postcode: prefilledPostcode, button, placeholder, materials: materialSelection } = this.props;
+
     return (
       <Container>
         <form method="GET" action="" onSubmit={this.handleSubmit}>
@@ -111,33 +129,35 @@ export default class Form extends Component {
                 </FormGroup>
               </Grid.Item>
             ) : null}
-            <Grid.Item style={{ flexBasis: '300px' }}>
-              <FormGroup>
-                <FormGroup.Label for="material"><Text id="form.material.label">Material</Text></FormGroup.Label>
-                <FormGroup.Control>
-                  <Select
-                    id="material"
-                    name="material"
-                    value={material}
-                    onInput={(e) => this.handleChange('material', e)}
-                    state={this.getState('material')}
-                    disabled={loading}
-                  >
-                    <option value=""><Text id="form.material.placeholder">Select material</Text></option>
-                    {materials.map((item) => {
-                      return (
-                        <option value={item.id}>{item.name}</option>
-                      );
-                    })}
-                  </Select>
-                </FormGroup.Control>
-                {isValidating && material === '' ? (
-                  <FormGroup.Help>
-                    <Text id="form.material.validation">Please choose a material to check</Text>
-                  </FormGroup.Help>
-                ) : null}
-              </FormGroup>
-            </Grid.Item>
+            {materialSelection.length !== 1 ? (
+              <Grid.Item style={{ flexBasis: '300px' }}>
+                <FormGroup>
+                  <FormGroup.Label for="material"><Text id="form.material.label">Material</Text></FormGroup.Label>
+                  <FormGroup.Control>
+                    <Select
+                      id="material"
+                      name="material"
+                      value={material}
+                      onInput={(e) => this.handleChange('material', e)}
+                      state={this.getState('material')}
+                      disabled={loading}
+                    >
+                      <option value=""><Text id="form.material.placeholder">Select material</Text></option>
+                      {this.filteredMaterials().map((item) => {
+                        return (
+                          <option value={item.id}>{item.name}</option>
+                        );
+                      })}
+                    </Select>
+                  </FormGroup.Control>
+                  {isValidating && material === '' ? (
+                    <FormGroup.Help>
+                      <Text id="form.material.validation">Please choose a material to check</Text>
+                    </FormGroup.Help>
+                  ) : null}
+                </FormGroup>
+              </Grid.Item>
+            ) : null}
             <Grid.Item>
               <FormGroup>
                 <FormGroup.Control>

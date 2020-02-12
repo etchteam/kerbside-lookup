@@ -22,7 +22,7 @@ export default class Success extends Component {
   }
 
   componentDidMount() {
-    const { loadRoute, locale, postcode } = this.props;
+    const { loadRoute, locale, postcode, material } = this.props;
 
     // const urls = [
     //   '/assets/data/kerbside-collection.json',
@@ -36,7 +36,7 @@ export default class Success extends Component {
     const url = `${process.env.API_HOST}/api/widget/kerbside/${postcode}`;
 
     setTimeout(() => {
-      fetch(`${url}?lang=${locale}`).then((response) => {
+      fetch(`${url}?lang=${locale}&materials=${material.id}`).then((response) => {
         return response.json();
       }).then((data) => {
         if (data.error) {
@@ -64,8 +64,8 @@ export default class Success extends Component {
           <Back onClick={() => loadRoute('form')}><Text id="success.back">Search again</Text></Back>
           <Title as="h2" state="success"><Text id="success.kerbside.title">Good news!</Text></Title>
           <p>
-            <Text id="success.kerbside.message" fields={{ material, postcode }}>
-              <span>You can recycle {material} in {postcode}.</span>
+            <Text id="success.kerbside.message" fields={{ material: material.name, postcode }}>
+              <span>You can recycle {material.name} in {postcode}.</span>
             </Text>
           </p>
 
@@ -94,6 +94,9 @@ export default class Success extends Component {
       );
     }
 
+    const shuffledAvailable = data.available_materials.sort(() => 0.5 - Math.random());
+    const top5Available = shuffledAvailable.slice(0, 5);
+
     return (
       <Container>
         <Back onClick={() => loadRoute('form')}><Text id="success.back">Search again</Text></Back>
@@ -104,9 +107,9 @@ export default class Success extends Component {
         </Title>
 
         <p>
-          <MarkupText id="success.no_kerbside.message" fields={{ postcode, material }}>
-            You can't recycle {material} at {postcode}, you'll need to take them
-            to your <a href={`https://www.recyclenow.com/local-recycling?rlw-initial-path=places%2Fresults%2F${postcode}%3Fmaterials%3D17%2C29`} target="_blank" rel="noopener noreferrer">nearest recycling location</a>
+          <MarkupText id="success.no_kerbside.message" fields={{ postcode, material: material.name, materials: material.id }}>
+            You can't recycle {material.name} at {postcode}, you'll need to take them
+            to your <a href={`https://www.recyclenow.com/local-recycling?rlw-initial-path=places%2Fresults%2F${postcode}%3Fmaterials%3D${material.id}`} target="_blank" rel="noopener noreferrer">nearest recycling location</a>
           </MarkupText>
         </p>
 
@@ -117,7 +120,7 @@ export default class Success extends Component {
         </p>
 
         <ul>
-          {data.available_materials.map((material) => (
+          {top5Available.map((material) => (
             <li key={material}>{material}</li>
           ))}
         </ul>

@@ -1,7 +1,7 @@
 import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 import { h, Component } from 'preact';
-import { array, string, bool } from 'prop-types';
+import { array, string } from 'prop-types';
 import { IntlProvider } from 'preact-i18n';
 
 import Transition from '../canvas/Transition';
@@ -44,7 +44,7 @@ export default class App extends Component {
   render() {
     const { route, props, enter, leave } = this.state;
     // From the habitat options
-    const { materials, postcode, button, placeholder, css, locale } = this.props;
+    const { materials, postcode, button, placeholder, locale } = this.props;
 
     const routes = {
       form: (
@@ -64,11 +64,9 @@ export default class App extends Component {
 
     return (
       <IntlProvider definition={locale === 'cy' ? welsh : {}}>
-        <div className={`klw-app-${css ? 'include' : 'exclude'}-css`}>
-          <Transition enter={enter} leave={leave}>
-            {routes[route] || routes.error}
-          </Transition>
-        </div>
+        <Transition enter={enter} leave={leave}>
+          {routes[route] || routes.error}
+        </Transition>
       </IntlProvider>
     );
   }
@@ -79,7 +77,6 @@ App.propTypes = {
   postcode: string,
   button: string,
   placeholder: string,
-  css: bool,
   token: string,
   locale: string
 };
@@ -89,7 +86,6 @@ App.defaultProps = {
   postcode: '',
   button: 'Submit',
   placeholder: 'Enter a postcode...',
-  css: true,
   token: '',
   locale: 'en'
 };

@@ -24,15 +24,6 @@ export default class Success extends Component {
   componentDidMount() {
     const { loadRoute, locale, postcode, material } = this.props;
 
-    // const urls = [
-    //   '/assets/data/kerbside-collection.json',
-    //   '/assets/data/no-kerbside-collection.json',
-    //   '/assets/data/error.json'
-    // ];
-
-    // // Get a random response
-    // const url = urls[Math.floor(Math.random() * urls.length)];
-
     const url = `${process.env.API_HOST}/api/widget/kerbside/${postcode}`;
 
     setTimeout(() => {

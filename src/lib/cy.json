@@ -1,5 +1,5 @@
 {
-  "logo": "<a class='klw-logo' href='https://www.recycleforwales.org.uk/cy' rel='noopener noreferrer' target='_blank'><img class='klw-logo__img' src='/assets/images/logo-cy.svg' alt='ailgylchu dros Gymru logo' width='400' height='108' /></a>",
+  "logo": "<a class='klw-logo' href='https://www.recycleforwales.org.uk/cy' rel='noopener noreferrer' target='_blank'><span class='klw-logo__img' style='background-image: url({{logo}})'></span></a>",
   "form": {
     "title": "Beth allwch chi ei ailgylchu gartref?",
     "postcode": {

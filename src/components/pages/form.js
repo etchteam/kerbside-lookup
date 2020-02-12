@@ -3,6 +3,7 @@ import { h, Component } from 'preact';
 import { func, array, string } from 'prop-types';
 import { Text } from 'preact-i18n';
 import find from 'lodash/find';
+import isValidPostcode from 'uk-postcode-validator';
 
 import Grid from '../composition/Grid';
 import FormGroup from '../composition/FormGroup';
@@ -59,9 +60,12 @@ export default class Form extends Component {
   }
 
   getState(field) {
-    if (this.state[field] !== '') return 'success';
+    const postcodeSuccess = ((field === 'postcode' && isValidPostcode(this.state[field])) || field !== 'postcode');
+    const postcodeDanger = (field === 'postcode' && !isValidPostcode(this.state[field]));
 
-    if (this.state.isValidating && this.state[field] === '') return 'danger';
+    if (this.state[field] !== '' && postcodeSuccess) return 'success';
+
+    if (this.state.isValidating && (this.state[field] === '' || postcodeDanger)) return 'danger';
 
     return 'default';
   }
@@ -92,7 +96,7 @@ export default class Form extends Component {
     const { postcode, material } = this.state;
     const { materials: materialSelection } = this.props;
 
-    return postcode !== '' && (material !== '' || materialSelection.length === 1);
+    return isValidPostcode(postcode) && (material !== '' || materialSelection.length === 1);
   }
 
   render() {
@@ -121,9 +125,9 @@ export default class Form extends Component {
                       onInput={(e) => this.handleChange('postcode', e)}
                     />
                   </FormGroup.Control>
-                  {isValidating && postcode === '' ? (
+                  {isValidating && !isValidPostcode(postcode) ? (
                     <FormGroup.Help>
-                      <Text id="form.postcode.validation">Please enter a UK postcode</Text>
+                      <Text id="form.postcode.validation">Enter a valid UK postcode</Text>
                     </FormGroup.Help>
                   ) : null}
                 </FormGroup>
@@ -152,7 +156,7 @@ export default class Form extends Component {
                   </FormGroup.Control>
                   {isValidating && material === '' ? (
                     <FormGroup.Help>
-                      <Text id="form.material.validation">Please choose a material to check</Text>
+                      <Text id="form.material.validation">Choose a material to check</Text>
                     </FormGroup.Help>
                   ) : null}
                 </FormGroup>

@@ -19,6 +19,7 @@
   "author": "Zouhir <zouhir@zouhir.org>",
   "license": "MIT",
   "devDependencies": {
+    "audit-ci": "^2.4.2",
     "dotenv-webpack": "1.7.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-preact-pure": "2.2.0",

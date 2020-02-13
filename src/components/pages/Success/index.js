@@ -26,19 +26,17 @@ export default class Success extends Component {
     const url = `${process.env.API_HOST}/api/widget/kerbside/${postcode}?lang=${locale}&materials=${material.id}`;
     const options = { credentials: 'include', headers: { Authorization: `Bearer ${token}` } };
 
-    setTimeout(() => {
-      fetch(url, options).then((response) => {
-        return response.json();
-      }).then((data) => {
-        if (data.error) {
-          loadRoute('error', { message: data.error });
-        } else {
-          this.setState({ data, loading: false });
-        }
-      }).catch(() => {
-        loadRoute('error');
-      });
-    }, 1000);
+    fetch(url, options).then((response) => {
+      return response.json();
+    }).then((data) => {
+      if (data.error) {
+        loadRoute('error', { message: data.error });
+      } else {
+        this.setState({ data, loading: false });
+      }
+    }).catch(() => {
+      loadRoute('error');
+    });
   }
 
   render() {

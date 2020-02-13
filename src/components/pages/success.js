@@ -22,12 +22,12 @@ export default class Success extends Component {
   }
 
   componentDidMount() {
-    const { loadRoute, locale, postcode, material } = this.props;
-
-    const url = `${process.env.API_HOST}/api/widget/kerbside/${postcode}`;
+    const { loadRoute, locale, postcode, material, token } = this.props;
+    const url = `${process.env.API_HOST}/api/widget/kerbside/${postcode}?lang=${locale}&materials=${material.id}`;
+    const options = { credentials: 'include', headers: { Authorization: `Bearer ${token}` } };
 
     setTimeout(() => {
-      fetch(`${url}?lang=${locale}&materials=${material.id}`).then((response) => {
+      fetch(url, options).then((response) => {
         return response.json();
       }).then((data) => {
         if (data.error) {
@@ -132,5 +132,6 @@ Success.propTypes = {
   loadRoute: func.isRequired,
   postcode: string.isRequired,
   material: string.isRequired,
-  locale: string.isRequired
+  locale: string.isRequired,
+  token: string.isRequired
 };

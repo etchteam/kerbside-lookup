@@ -33,8 +33,11 @@ export default class Form extends Component {
   }
 
   componentDidMount() {
-    const { loadRoute, locale } = this.props;
-    fetch(`${process.env.API_HOST}/api/widget/materials?lang=${locale}`).then((response) => {
+    const { loadRoute, locale, token } = this.props;
+    const url = `${process.env.API_HOST}/api/widget/materials?lang=${locale}`;
+    const options = { credentials: 'include', headers: { Authorization: `Bearer ${token}` } };
+
+    fetch(url, options).then((response) => {
       return response.json();
     }).then((data) => {
       if (data.error) {
@@ -183,5 +186,6 @@ Form.propTypes = {
   postcode: string.isRequired,
   button: string.isRequired,
   placeholder: string.isRequired,
-  locale: string.isRequired
+  locale: string.isRequired,
+  token: string.isRequired
 };

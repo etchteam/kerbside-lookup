@@ -1,17 +1,18 @@
 /* eslint-env node, jest */
 /* global fetch */
-
 import { h } from 'preact';
 import { mount } from 'enzyme';
 import Success from './index';
+
+import kerbside from './__mocks__/kerbside';
 
 describe('Success', () => {
   beforeEach(() => {
     fetch.resetMocks();
   });
 
-  it('should render a title', () => {
-    fetch.mockResponseOnce(JSON.stringify({ kerbside_collection: true }));
+  it('should render a title', (done) => {
+    fetch.mockResponseOnce(JSON.stringify(kerbside));
     const wrapper = mount(
       <Success
         loadRoute={() => {}}
@@ -20,7 +21,12 @@ describe('Success', () => {
         material=""
         token=""
       />);
+
     expect(fetch.mock.calls.length).toBe(1);
-    expect(wrapper.exists('h2')).toBe(true);
+    setTimeout(() => {
+      console.log(wrapper.html());
+      expect(wrapper.exists('h2')).toBe(true);
+      done();
+    }, 1000);
   });
 });

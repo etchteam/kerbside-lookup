@@ -3,13 +3,13 @@ import { h, Component } from 'preact';
 import { func, string } from 'prop-types';
 import { Text, MarkupText } from 'preact-i18n';
 
-import List from '../composition/List';
-import Container from '../canvas/Container';
-import Loading from '../content/Loading';
-import Logo from '../content/Logo';
-import Title from '../content/Title';
-import RecyclingContainer from '../content/RecyclingContainer';
-import Back from '../controls/Back';
+import List from '../../composition/List';
+import Container from '../../canvas/Container';
+import Loading from '../../content/Loading';
+import Logo from '../../content/Logo';
+import Title from '../../content/Title';
+import RecyclingContainer from '../../content/RecyclingContainer';
+import Back from '../../controls/Back';
 
 export default class Success extends Component {
   constructor(props) {

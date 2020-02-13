@@ -5,14 +5,14 @@ import { Text } from 'preact-i18n';
 import find from 'lodash/find';
 import isValidPostcode from 'uk-postcode-validator';
 
-import Grid from '../composition/Grid';
-import FormGroup from '../composition/FormGroup';
-import Container from '../canvas/Container';
-import Logo from '../content/Logo';
-import Title from '../content/Title';
-import Button from '../controls/Button';
-import Input from '../controls/Input';
-import Select from '../controls/Select';
+import Grid from '../../composition/Grid';
+import FormGroup from '../../composition/FormGroup';
+import Container from '../../canvas/Container';
+import Logo from '../../content/Logo';
+import Title from '../../content/Title';
+import Button from '../../controls/Button';
+import Input from '../../controls/Input';
+import Select from '../../controls/Select';
 
 export default class Form extends Component {
   constructor(props) {

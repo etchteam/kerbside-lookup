@@ -2,10 +2,10 @@ import { h } from 'preact';
 import { func, node, string } from 'prop-types';
 import { Text, MarkupText } from 'preact-i18n';
 
-import Container from '../canvas/Container';
-import Logo from '../content/Logo';
-import Title from '../content/Title';
-import Back from '../controls/Back';
+import Container from '../../canvas/Container';
+import Logo from '../../content/Logo';
+import Title from '../../content/Title';
+import Back from '../../controls/Back';
 
 export default function Error({ title, message, loadRoute }) {
   return (

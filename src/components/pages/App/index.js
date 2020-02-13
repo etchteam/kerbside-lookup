@@ -1,18 +1,18 @@
-import 'promise-polyfill/src/polyfill';
-import 'whatwg-fetch';
+import 'promise-polyfill/dist/polyfill';
+import 'cross-fetch/polyfill';
 import { h, Component } from 'preact';
 import { array, string } from 'prop-types';
 import { IntlProvider } from 'preact-i18n';
 
-import Transition from '../canvas/Transition';
+import Transition from '../../canvas/Transition';
 
-import Form from './form';
-import Success from './success';
-import Error from './error';
+import Form from '../Form';
+import Success from '../Success';
+import Error from '../Error';
 
-import '../../styles/main.scss';
+import '../../../styles/main.scss';
 
-import welsh from '../../lib/cy.json';
+import welsh from '../../../lib/cy.json';
 
 export default class App extends Component {
   constructor(props) {

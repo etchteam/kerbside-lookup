@@ -24,7 +24,7 @@ Add the following `div` in the location you want the widget to appear:
 
 ### Options
 
-You can set the following using `data` attributes on your `div` tag.
+You can set the following using `data-prop` attributes on your `div` tag.
 
 * `token` - Your API token (required)
 * `materials` - An array of material IDs to restrict the widget to (optional)
@@ -37,9 +37,22 @@ For example:
 
 ```html
 <div id="wrap-klw"
-  data-token="MySuperSecureApiToken"
-  data-lang="cy"
+  data-prop-token="MySuperSecureApiToken"
+  data-prop-locale="cy"
 ></div>
+```
+
+Alternatively, you can ue a script tag with a JSON object inside.
+
+```html
+<div id="wrap-klw">
+  <script type="text/props">
+    {
+      "token": "MySuperSecureApiToken",
+      "locale": "cy"
+    }
+  </script>
+</div>
 ```
 
 ## Support

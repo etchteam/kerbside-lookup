@@ -6,14 +6,14 @@
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
   "module": "dist/index.m.js",
-  "source": "src/components/pages/App/index.js",
+  "source": "src/index.js",
   "scripts": {
     "test": "NODE_ENV=test jest",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
     "serve": "npm run build && preact serve",
     "dev": "preact watch --template src/index.ejs",
-    "dist": "microbundle --entry src/components/pages/App/index.js --external none --define process.env.NODE_ENV=production,process.env.API_HOST=https://rl.recyclenow.com",
+    "dist": "microbundle --entry src/index.js --external none --define process.env.NODE_ENV=production,process.env.API_HOST=https://rl.recyclenow.com",
     "audit-ci": "audit-ci --low --config audit-ci.json"
   },
   "keywords": [],

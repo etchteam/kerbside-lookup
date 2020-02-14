@@ -1,7 +1,7 @@
 import 'promise-polyfill/dist/polyfill';
 import 'cross-fetch/polyfill';
 import { h, Component } from 'preact';
-import { array, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { IntlProvider } from 'preact-i18n';
 
 import Transition from '../../canvas/Transition';
@@ -74,12 +74,12 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  materials: array,
-  postcode: string,
-  button: string,
-  placeholder: string,
-  token: string.isRequired,
-  locale: string
+  materials: PropTypes.array,
+  postcode: PropTypes.string,
+  button: PropTypes.string,
+  placeholder: PropTypes.string,
+  token: PropTypes.string.isRequired,
+  locale: PropTypes.string
 };
 
 App.defaultProps = {

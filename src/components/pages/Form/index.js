@@ -1,6 +1,6 @@
 /* global fetch */
 import { h, Component } from 'preact';
-import { func, array, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Text } from 'preact-i18n';
 import find from 'lodash/find';
 import isValidPostcode from 'uk-postcode-validator';
@@ -181,11 +181,11 @@ export default class Form extends Component {
 }
 
 Form.propTypes = {
-  loadRoute: func.isRequired,
-  materials: array.isRequired,
-  postcode: string.isRequired,
-  button: string.isRequired,
-  placeholder: string.isRequired,
-  locale: string.isRequired,
-  token: string.isRequired
+  loadRoute: PropTypes.func.isRequired,
+  materials: PropTypes.array.isRequired,
+  postcode: PropTypes.string.isRequired,
+  button: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  locale: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired
 };

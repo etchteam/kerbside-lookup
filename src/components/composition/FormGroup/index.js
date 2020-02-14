@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { node } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Control from './Control';
 import Help from './Help';
@@ -14,7 +14,7 @@ export default function FormGroup({ children }) {
 }
 
 FormGroup.propTypes = {
-  children: node.isRequired
+  children: PropTypes.node.isRequired
 };
 
 FormGroup.Control = Control;

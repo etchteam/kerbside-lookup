@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function Input({ state, ...props }) {
   return (
@@ -11,7 +11,7 @@ export default function Input({ state, ...props }) {
 }
 
 Input.propTypes = {
-  state: string
+  state: PropTypes.string
 };
 
 Input.defaultProps = {

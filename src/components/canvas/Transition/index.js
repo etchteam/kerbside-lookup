@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { node, bool } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function Transition({ children, enter, leave }) {
   let cx = 'klw-transition';
@@ -14,9 +14,9 @@ export default function Transition({ children, enter, leave }) {
 }
 
 Transition.propTypes = {
-  children: node.isRequired,
-  enter: bool,
-  leave: bool
+  children: PropTypes.node.isRequired,
+  enter: PropTypes.bool,
+  leave: PropTypes.bool
 };
 
 Transition.defaultProps = {

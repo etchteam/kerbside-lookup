@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { node } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Item from './Item';
 
@@ -12,7 +12,7 @@ export default function List({ children }) {
 }
 
 List.propTypes = {
-  children: node.isRequired
+  children: PropTypes.node.isRequired
 };
 
 List.Item = Item;

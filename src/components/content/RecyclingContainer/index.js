@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Title from '../Title';
 
@@ -18,7 +18,7 @@ export default function RecyclingContainer({ title, image, content }) {
 }
 
 RecyclingContainer.propTypes = {
-  title: string.isRequired,
-  image: string.isRequired,
-  content: string.isRequired
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired
 };

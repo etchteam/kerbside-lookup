@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { node } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function Button({ children, ...props }) {
   return (
@@ -10,5 +10,5 @@ export default function Button({ children, ...props }) {
 }
 
 Button.propTypes = {
-  children: node.isRequired
+  children: PropTypes.node.isRequired
 };

@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { node, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function Select({ children, state, ...props }) {
   return (
@@ -20,8 +20,8 @@ export default function Select({ children, state, ...props }) {
 }
 
 Select.propTypes = {
-  children: node.isRequired,
-  state: string
+  children: PropTypes.node.isRequired,
+  state: PropTypes.string
 };
 
 Select.defaultProps = {

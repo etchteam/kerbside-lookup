@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { func, node, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Text, MarkupText } from 'preact-i18n';
 
 import Container from '../../canvas/Container';
@@ -31,8 +31,8 @@ export default function Error({ title, message, loadRoute }) {
 }
 
 Error.propTypes = {
-  title: node,
-  message: node,
-  loadRoute: func.isRequired,
-  locale: string.isRequired
+  title: PropTypes.node,
+  message: PropTypes.node,
+  loadRoute: PropTypes.func.isRequired,
+  locale: PropTypes.string.isRequired
 };

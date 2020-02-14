@@ -1,6 +1,6 @@
 /* global fetch */
 import { h, Component } from 'preact';
-import { func, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Text, MarkupText } from 'preact-i18n';
 
 import List from '../../composition/List';
@@ -127,9 +127,9 @@ export default class Success extends Component {
 }
 
 Success.propTypes = {
-  loadRoute: func.isRequired,
-  postcode: string.isRequired,
-  material: string.isRequired,
-  locale: string.isRequired,
-  token: string.isRequired
+  loadRoute: PropTypes.func.isRequired,
+  postcode: PropTypes.string.isRequired,
+  material: PropTypes.string.isRequired,
+  locale: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired
 };

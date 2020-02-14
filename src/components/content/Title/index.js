@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { node, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function Title({ children, as, state, ...props }) {
   const El = as;
@@ -11,9 +11,9 @@ export default function Title({ children, as, state, ...props }) {
 }
 
 Title.propTypes = {
-  as: string,
-  children: node.isRequired,
-  state: string
+  as: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  state: PropTypes.string
 };
 
 Title.defaultProps = {

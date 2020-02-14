@@ -1,6 +1,6 @@
 /* global fetch */
 import { h, Component } from 'preact';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Text, withText } from 'preact-i18n';
 import find from 'lodash/find';
 import isValidPostcode from 'uk-postcode-validator';
@@ -190,7 +190,7 @@ Form.propTypes = {
   placeholder: PropTypes.string.isRequired,
   locale: PropTypes.string.isRequired,
   token: PropTypes.string.isRequired,
-  intlPlaceholder: string
+  intlPlaceholder: PropTypes.string
 };
 
 export default withText({ intlPlaceholder: 'form.postcode.placeholder' })(Form);

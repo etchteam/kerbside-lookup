@@ -1,7 +1,7 @@
 /* global fetch */
 import { h, Component } from 'preact';
-import PropTypes from 'prop-types';
-import { Text } from 'preact-i18n';
+import PropTypes, { string } from 'prop-types';
+import { Text, withText } from 'preact-i18n';
 import find from 'lodash/find';
 import isValidPostcode from 'uk-postcode-validator';
 
@@ -14,7 +14,7 @@ import Button from '../../controls/Button';
 import Input from '../../controls/Input';
 import Select from '../../controls/Select';
 
-export default class Form extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
@@ -104,7 +104,9 @@ export default class Form extends Component {
 
   render() {
     const { postcode, material, isValidating, loading } = this.state;
-    const { postcode: prefilledPostcode, button, placeholder, materials: materialSelection } = this.props;
+    const { postcode: prefilledPostcode, button, placeholder, intlPlaceholder, materials: materialSelection } = this.props;
+
+    const i18nPlaceholder = placeholder || intlPlaceholder || 'Enter a postcode...';
 
     return (
       <Container>
@@ -121,7 +123,7 @@ export default class Form extends Component {
                       type="text"
                       id="postcode"
                       name="postcode"
-                      placeholder={placeholder}
+                      placeholder={i18nPlaceholder}
                       autocomplete="shipping postal-code"
                       value={postcode}
                       state={this.getState('postcode')}
@@ -168,7 +170,7 @@ export default class Form extends Component {
             <Grid.Item>
               <FormGroup>
                 <FormGroup.Control>
-                  <Button type="submit">{button}</Button>
+                  <Button type="submit">{button || <Text id="form.button">Submit</Text>}</Button>
                   <Logo />
                 </FormGroup.Control>
               </FormGroup>
@@ -183,9 +185,12 @@ export default class Form extends Component {
 Form.propTypes = {
   loadRoute: PropTypes.func.isRequired,
   materials: PropTypes.array.isRequired,
-  postcode: PropTypes.string.isRequired,
-  button: PropTypes.string.isRequired,
+  postcode: PropTypes.string,
+  button: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   locale: PropTypes.string.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string.isRequired,
+  intlPlaceholder: string
 };
+
+export default withText({ intlPlaceholder: 'form.postcode.placeholder' })(Form);

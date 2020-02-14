@@ -85,7 +85,5 @@ App.propTypes = {
 App.defaultProps = {
   materials: [],
   postcode: '',
-  button: 'Submit',
-  placeholder: 'Enter a postcode...',
   locale: 'en'
 };

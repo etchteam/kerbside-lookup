@@ -4,13 +4,15 @@
     "title": "Beth allwch chi ei ailgylchu gartref?",
     "postcode": {
       "label": "Cod post",
-      "validation": "Rhowch god post yn y DU"
+      "validation": "Rhowch god post yn y DU",
+      "placeholder": "Rhowch god post"
     },
     "material": {
       "label": "Deunydd",
       "validation": "Dewiswch ddeunydd",
       "placeholder": "Dewiswch ddeunydd"
-    }
+    },
+    "button": "Cyflwyno"
   },
   "error": {
     "back": "Chwilio eto",

@@ -13,7 +13,7 @@
     "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
     "serve": "npm run build && preact serve",
     "dev": "preact watch --template src/index.ejs",
-    "dist": "microbundle --entry src/components/pages/App/index.js --external all",
+    "dist": "microbundle --entry src/components/pages/App/index.js --external none --define process.env.NODE_ENV=production,process.env.API_HOST=https://rl.recyclenow.com",
     "audit-ci": "audit-ci --low --config audit-ci.json"
   },
   "keywords": [],

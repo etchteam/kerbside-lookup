@@ -12,7 +12,7 @@ script:
   - npx audit-ci --low --config audit-ci.json
   - npm run test
   - npx eslint src
-  - npm run build
+  - npm run dist
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

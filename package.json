@@ -13,7 +13,8 @@
     "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
     "serve": "npm run build && preact serve",
     "dev": "preact watch --template src/index.ejs",
-    "dist": "microbundle --entry src/components/pages/app.js"
+    "dist": "microbundle --entry src/components/pages/app.js",
+    "audit-ci": "audit-ci --low --config audit-ci.json"
   },
   "keywords": [],
   "author": "Zouhir <zouhir@zouhir.org>",

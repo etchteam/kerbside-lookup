@@ -9,7 +9,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - npx audit-ci --low
+  - npx audit-ci --low --config audit-ci.json
   - npm run test
   - npx eslint src
   - npm run build

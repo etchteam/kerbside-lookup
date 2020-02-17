@@ -22,8 +22,9 @@ export default class Success extends Component {
   }
 
   componentDidMount() {
-    const { loadRoute, locale, postcode, material, token } = this.props;
-    const url = `${process.env.API_HOST}/api/widget/kerbside/${postcode}?lang=${locale}&materials=${material.id}`;
+    const { loadRoute, locale, postcode, material, token, apihost } = this.props;
+    const host = apihost || process.env.API_HOST;
+    const url = `${host}/api/widget/kerbside/${postcode}?lang=${locale}&materials=${material.id}`;
     const options = { credentials: 'include', headers: { Authorization: `Bearer ${token}` } };
 
     fetch(url, options).then((response) => {
@@ -131,5 +132,6 @@ Success.propTypes = {
   postcode: PropTypes.string.isRequired,
   material: PropTypes.string.isRequired,
   locale: PropTypes.string.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string.isRequired,
+  apihost: PropTypes.string
 };

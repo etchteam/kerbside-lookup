@@ -40,7 +40,8 @@
     width: 2.5em;
     z-index: 0;
 
-    svg {
+    svg,
+    .klw-spinner {
       left: 50%;
       position: absolute;
       top: 50%;

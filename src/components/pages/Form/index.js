@@ -38,16 +38,24 @@ class Form extends Component {
     const url = `${host}/api/widget/materials?lang=${locale}`;
     const options = { credentials: 'include', headers: { Authorization: `Bearer ${token}` } };
 
-    fetch(url, options).then((response) => {
-      return response.json();
+    fetch(url, options).then(async (response) => {
+      const data = await response.json();
+      if (!response.ok) {
+        return {
+          ...data,
+          code: response.status
+        };
+      }
+      return data;
     }).then((data) => {
       if (data.error) {
-        loadRoute('error', { message: data.error });
+        loadRoute('error', { message: data.error, code: data.code });
       } else {
         this.setState({ materials: data, loading: false });
         if (this.isValid()) this.handleSubmit();
       }
-    }).catch(() => {
+    }).catch((e) => {
+      console.log(e);
       loadRoute('error');
     });
   }
@@ -151,6 +159,7 @@ class Form extends Component {
                       onInput={(e) => this.handleChange('material', e)}
                       state={this.getState('material')}
                       disabled={loading}
+                      loading={loading}
                     >
                       <option value=""><Text id="form.material.placeholder">Select material</Text></option>
                       {this.filteredMaterials().map((item) => {

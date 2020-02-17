@@ -7,10 +7,14 @@ import Logo from '../../content/Logo';
 import Title from '../../content/Title';
 import Back from '../../controls/Back';
 
-export default function Error({ title, message, loadRoute }) {
+export default function Error({ code, title, message, loadRoute }) {
+  const badCodes = [401, 403];
+  const canSearchAgain = !(code && badCodes.indexOf(code) > -1);
   return (
     <Container>
-      <Back onClick={() => loadRoute('form')}><Text id="error.back">Search again</Text></Back>
+      {canSearchAgain ? (
+        <Back onClick={() => loadRoute('form')}><Text id="error.back">Search again</Text></Back>
+      ) : null}
       <Title as="h2" state="danger">
         {title || <Text id="error.title">Oops</Text>}
       </Title>
@@ -31,6 +35,7 @@ export default function Error({ title, message, loadRoute }) {
 }
 
 Error.propTypes = {
+  code: PropTypes.number,
   title: PropTypes.node,
   message: PropTypes.node,
   loadRoute: PropTypes.func.isRequired,

@@ -1,0 +1,34 @@
+@keyframes klw-spinner-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes klw-spinner-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.klw-spinner {
+  display: inline-block;
+
+  &__inner {
+    animation: klw-spinner-spin 1s linear infinite, klw-spinner-fade 0.2s ease-in-out 1 backwards 1s;
+    border: 2px solid $color-shade-lighter;
+    border-radius: 50%;
+    border-top-color: $color-alert-info;
+    display: inline-block;
+    height: 1em;
+    vertical-align: middle;
+    width: 1em;
+  }
+}

@@ -44,7 +44,7 @@ export default class App extends Component {
   render() {
     const { route, props, enter, leave } = this.state;
     // From the habitat options
-    const { materials, postcode, button, placeholder, locale, token } = this.props;
+    const { materials, postcode, button, placeholder, locale, token, apihost } = this.props;
 
     const routes = {
       form: (
@@ -56,10 +56,11 @@ export default class App extends Component {
           placeholder={placeholder}
           locale={locale}
           token={token}
+          apihost={apihost}
           {...props}
         />
       ),
-      success: <Success loadRoute={this.loadRoute} locale={locale} token={token} {...props} />,
+      success: <Success loadRoute={this.loadRoute} locale={locale} token={token} apihost={apihost} {...props} />,
       error: <Error loadRoute={this.loadRoute} locale={locale} {...props} />
     };
 
@@ -79,7 +80,8 @@ App.propTypes = {
   button: PropTypes.string,
   placeholder: PropTypes.string,
   token: PropTypes.string.isRequired,
-  locale: PropTypes.string
+  locale: PropTypes.string,
+  apihost: PropTypes.string
 };
 
 App.defaultProps = {

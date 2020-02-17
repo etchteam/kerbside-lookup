@@ -33,8 +33,9 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    const { loadRoute, locale, token } = this.props;
-    const url = `${process.env.API_HOST}/api/widget/materials?lang=${locale}`;
+    const { loadRoute, locale, token, apihost } = this.props;
+    const host = apihost || process.env.API_HOST;
+    const url = `${host}/api/widget/materials?lang=${locale}`;
     const options = { credentials: 'include', headers: { Authorization: `Bearer ${token}` } };
 
     fetch(url, options).then((response) => {
@@ -190,7 +191,8 @@ Form.propTypes = {
   placeholder: PropTypes.string.isRequired,
   locale: PropTypes.string.isRequired,
   token: PropTypes.string.isRequired,
-  intlPlaceholder: PropTypes.string
+  intlPlaceholder: PropTypes.string,
+  apihost: PropTypes.string
 };
 
 export default withText({ intlPlaceholder: 'form.postcode.placeholder' })(Form);

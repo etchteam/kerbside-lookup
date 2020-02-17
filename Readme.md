@@ -33,6 +33,7 @@ You can set the following using `data-prop` attributes on your `div` tag.
 * `locale` - `cy` or `en`. Defaults to `en`.
 * `button` - Button text. Defaults to `Submit` or `Cyflwyno` depending on the `locale` setting.
 * `placeholder` - Placeholder text. Defaults to `Enter a postcode...` or `Rhowch eich cod post...` depending on `locale` setting.
+* `apihost` - Used in development to override the api host on pre-built widget code.
 
 For example:
 

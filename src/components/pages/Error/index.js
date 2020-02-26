@@ -1,13 +1,14 @@
 import { h } from 'preact';
 import PropTypes from 'prop-types';
-import { Text, MarkupText } from 'preact-i18n';
+import { Text } from 'preact-i18n';
 
 import Container from '../../canvas/Container';
-import Logo from '../../content/Logo';
+import OutLink from '../../content/OutLink';
+import PoweredBy from '../../content/PoweredBy';
 import Title from '../../content/Title';
 import Back from '../../controls/Back';
 
-export default function Error({ code, title, message, loadRoute }) {
+export default function Error({ code, title, message, loadRoute, brand }) {
   const badCodes = [401, 403];
   const canSearchAgain = !(code && badCodes.indexOf(code) > -1);
   return (
@@ -24,12 +25,14 @@ export default function Error({ code, title, message, loadRoute }) {
       </p>
 
       <p>
-        <MarkupText id="error.more">
-          Find out more about recycling near you at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a>
-        </MarkupText>
+        <Text id="error.more">
+          Find out more about recycling near you at
+        </Text>
+        {' '}
+        <OutLink brand={brand} />
       </p>
 
-      <Logo />
+      <PoweredBy brand={brand} />
     </Container>
   );
 }
@@ -39,5 +42,6 @@ Error.propTypes = {
   title: PropTypes.node,
   message: PropTypes.node,
   loadRoute: PropTypes.func.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
+  brand: PropTypes.string.isRequired
 };

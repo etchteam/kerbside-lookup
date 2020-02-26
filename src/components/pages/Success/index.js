@@ -6,10 +6,12 @@ import { Text, MarkupText } from 'preact-i18n';
 import List from '../../composition/List';
 import Container from '../../canvas/Container';
 import Loading from '../../content/Loading';
-import Logo from '../../content/Logo';
+import OutLink from '../../controls/OutLink';
+import PoweredBy from '../../content/PoweredBy';
 import Title from '../../content/Title';
 import RecyclingContainer from '../../content/RecyclingContainer';
 import Back from '../../controls/Back';
+import NearestRecycling from '../../controls/NearestRecycling';
 
 export default class Success extends Component {
   constructor(props) {
@@ -41,7 +43,7 @@ export default class Success extends Component {
   }
 
   render() {
-    const { loadRoute, postcode, material } = this.props;
+    const { loadRoute, postcode, material, brand } = this.props;
     const { loading, data } = this.state;
 
     if (loading) {
@@ -55,7 +57,7 @@ export default class Success extends Component {
           <Title as="h2" state="success"><Text id="success.kerbside.title">Good news!</Text></Title>
           <p>
             <Text id="success.kerbside.message" fields={{ material: material.name, postcode }}>
-              <span>You can recycle {material.name} in {postcode}.</span>
+              <span>You can put {material.name} in your home recycling in {postcode}.</span>
             </Text>
           </p>
 
@@ -74,12 +76,14 @@ export default class Success extends Component {
           </List>
 
           <p>
-            <MarkupText id="success.more">
-              Find out more at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a>
-            </MarkupText>
+            <Text id="success.more">
+              Find out how to recycle more items at
+            </Text>
+            {' '}
+            <OutLink brand={brand} />
           </p>
 
-          <Logo />
+          <PoweredBy brand={brand} />
         </Container>
       );
     }
@@ -92,20 +96,22 @@ export default class Success extends Component {
         <Back onClick={() => loadRoute('form')}><Text id="success.back">Search again</Text></Back>
         <Title as="h2" state="info">
           <Text id="success.no_kerbside.title">
-            Visit a local recycling location
+            Unfortunately...
           </Text>
         </Title>
 
         <p>
           <MarkupText id="success.no_kerbside.message" fields={{ postcode, material: material.name, materials: material.id }}>
-            You can't recycle {material.name} at {postcode}, you'll need to take them
-            to your <a href={`https://www.recyclenow.com/local-recycling?rlw-initial-path=places%2Fresults%2F${postcode}%3Fmaterials%3D${material.id}`} target="_blank" rel="noopener noreferrer">nearest recycling location</a>
+            You <strong>can't</strong> put {material.name} in your home recycling in {postcode} at the moment, you'll need to take them
+            to your
           </MarkupText>
+          {' '}
+          <NearestRecycling brand={brand} postcode={postcode} materialId={material.id} />
         </p>
 
         <p>
           <Text id="success.no_kerbside.list_title">
-            Here are some things you can recycle:
+            But here are some things you can recycle at home:
           </Text>
         </p>
 
@@ -117,11 +123,13 @@ export default class Success extends Component {
 
         <p>
           <MarkupText id="success.more">
-            Find out more at <a href="https://recyclenow.com" rel="noopener noreferrer" target="_blank">RecycleNow</a>
+            Find out how to recycle more items at
           </MarkupText>
+          {' '}
+          <OutLink brand={brand} />
         </p>
 
-        <Logo />
+        <PoweredBy brand={brand} />
       </Container>
     );
   }
@@ -133,5 +141,6 @@ Success.propTypes = {
   material: PropTypes.string.isRequired,
   locale: PropTypes.string.isRequired,
   token: PropTypes.string.isRequired,
-  apihost: PropTypes.string
+  apihost: PropTypes.string,
+  brand: PropTypes.string.isRequired
 };

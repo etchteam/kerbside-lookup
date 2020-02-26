@@ -1,0 +1,10 @@
+.klw-powered-by {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: .5em 0;
+
+  &__text {
+    font-size: .875em;
+  }
+}

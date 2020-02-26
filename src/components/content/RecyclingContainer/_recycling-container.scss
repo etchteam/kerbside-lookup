@@ -13,6 +13,12 @@
     }
   }
 
+  &__no-image {
+    background: $color-shade-lightest;
+    display: block;
+    height: 54px;
+  }
+
   &__content {
     flex: 1 1 auto;
     font-size: .875em;

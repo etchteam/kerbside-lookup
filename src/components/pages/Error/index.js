@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Text } from 'preact-i18n';
 
 import Container from '../../canvas/Container';
-import OutLink from '../../content/OutLink';
+import OutLink from '../../controls/OutLink';
 import PoweredBy from '../../content/PoweredBy';
 import Title from '../../content/Title';
 import Back from '../../controls/Back';

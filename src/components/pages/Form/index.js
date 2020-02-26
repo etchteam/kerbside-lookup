@@ -8,7 +8,7 @@ import isValidPostcode from 'uk-postcode-validator';
 import Grid from '../../composition/Grid';
 import FormGroup from '../../composition/FormGroup';
 import Container from '../../canvas/Container';
-import Logo from '../../content/Logo';
+import PoweredBy from '../../content/PoweredBy';
 import Title from '../../content/Title';
 import Button from '../../controls/Button';
 import Input from '../../controls/Input';
@@ -113,7 +113,7 @@ class Form extends Component {
 
   render() {
     const { postcode, material, isValidating, loading } = this.state;
-    const { postcode: prefilledPostcode, button, placeholder, intlPlaceholder, materials: materialSelection } = this.props;
+    const { postcode: prefilledPostcode, button, placeholder, intlPlaceholder, materials: materialSelection, brand } = this.props;
 
     const i18nPlaceholder = placeholder || intlPlaceholder || 'Enter a postcode...';
 
@@ -181,7 +181,7 @@ class Form extends Component {
               <FormGroup>
                 <FormGroup.Control>
                   <Button type="submit">{button || <Text id="form.button">Submit</Text>}</Button>
-                  <Logo />
+                  <PoweredBy brand={brand} />
                 </FormGroup.Control>
               </FormGroup>
             </Grid.Item>

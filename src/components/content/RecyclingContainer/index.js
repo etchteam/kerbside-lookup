@@ -7,7 +7,9 @@ export default function RecyclingContainer({ title, image, content }) {
   return (
     <div className="klw-recycling-container">
       <div className="klw-recycling-container__image">
-        <img src={image} alt={title} role="presentation" />
+        {image ? (
+          <img src={image} alt={title} role="presentation" />
+        ) : <span className="klw-recycling-container__no-image" />}
       </div>
       <div className="klw-recycling-container__content">
         <Title as="h3">{title}</Title>

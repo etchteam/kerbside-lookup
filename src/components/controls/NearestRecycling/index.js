@@ -10,7 +10,7 @@ const NearestRecycling = withText({
   const query = `?rlw-initial-path=places%2Fresults%2F${postcode}%3Fmaterials%3D${materialId}`;
   return brand === 'rfw' ? (
     <a
-      href={`https://www.recycleforwales.org.uk${path}${query}`}
+      href={`http://walesrecycles.org.uk${path}${query}`}
       rel="noopener noreferrer"
       target="_blank"
     >

@@ -12,7 +12,7 @@ const Logo = withText({
   return brand === 'rfw' ? (
     <a
       className="klw-logo"
-      href={`https://www.recycleforwales.org.uk${path}`}
+      href={`http://walesrecycles.org.uk${path}`}
       rel="noopener noreferrer"
       target="_blank"
     >

@@ -1,7 +1,7 @@
 {
   "name": "wrap-kerbside-lookup",
   "repository": "https://github.com/etchteam/wrap-kerbside-lookup",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "description": "",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",

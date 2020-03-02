@@ -6,10 +6,10 @@ const OutLink = withText({
   locale: <Text id="locale">en</Text>
 })(({ brand, locale }) => {
   const path = locale === 'cy' ? '/cy/alla-i-ei-ailgylchu' : '/what-to-do-with';
-  const text = locale === 'cy' ? 'ailgylchu dros Gymru' : 'Recycle for Wales';
+  const text = locale === 'cy' ? 'Cymru yn ailgylchu' : 'Wales recycles';
   return brand === 'rfw' ? (
     <a
-      href={`https://www.recycleforwales.org.uk${path}`}
+      href={`http://walesrecycles.org.uk${path}`}
       rel="noopener noreferrer"
       target="_blank"
     >

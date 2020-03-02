@@ -30,7 +30,7 @@
     },
     "no_kerbside": {
       "title": "Ysywaeth...",
-      "message": "Ni allwch roi {{material}} yn eich cartref yn ailgylchu yn {{postcode}} ar hyn o bryd, bydd angen i chi fynd â nhw i'ch <a href='https://www.recycleforwales.org.uk/cy/lleoliad-ailgylchu-1?rlw-initial-path=places%2Fresults%2F{{postcode}}%3Fmaterials%3D{{materials}}' target='_blank' rel='noopener noreferrer'>lleoliad ailgylchu agosaf</a>",
+      "message": "Ni allwch roi {{material}} yn eich cartref yn ailgylchu yn {{postcode}} ar hyn o bryd, bydd angen i chi fynd â nhw i'ch <a href='http://walesrecycles.org.uk/cy/lleoliad-ailgylchu-1?rlw-initial-path=places%2Fresults%2F{{postcode}}%3Fmaterials%3D{{materials}}' target='_blank' rel='noopener noreferrer'>lleoliad ailgylchu agosaf</a>",
       "list_title": "Ond dyma rai pethau y gallwch chi eu hailgylchu gartref:"
     }
   }

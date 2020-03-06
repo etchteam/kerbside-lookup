@@ -2,15 +2,15 @@
   "locale": "cy",
   "powered_by": "Pwerwyd gan",
   "form": {
-    "title": "Beth allwch chi ei ailgylchu gartref?",
+    "title": "Beth allaf i ei ailgylchu gartref?",
     "postcode": {
       "label": "Cod post",
-      "validation": "Rhowch god post yn y DU",
-      "placeholder": "Rhowch god post"
+      "validation": "Defnyddiwch god post dilys yn y DU ",
+      "placeholder": "Nodwch god post..."
     },
     "material": {
       "label": "Deunydd",
-      "validation": "Dewiswch ddeunydd",
+      "validation": "Dewiswch ddeunydd i’w wirio",
       "placeholder": "Dewiswch ddeunydd"
     },
     "button": "Cyflwyno"
@@ -18,20 +18,20 @@
   "error": {
     "back": "Chwilio eto",
     "title": "Wps",
-    "message": "Aeth rhywbeth o'i le wrth geisio adfer eich canlyniadau.",
-    "more": "Darganfyddwch fwy am ailgylchu yn agos atoch chi wrth"
+    "message": "Aeth rhywbeth o’i le wrth geisio cael eich canlyniadau.",
+    "more": "Dysgwch fwy am ailgylchu yn eich ardal gan"
   },
   "success": {
     "back": "Chwilio eto",
-    "more": "Darganfyddwch sut i ailgylchu mwy o eitemau yn",
+    "more": "Dysgwch fwy gan",
     "kerbside": {
       "title": "Newyddion da!",
-      "message": "Gallwch chi roi {{material}} yn eich cartref yn ailgylchu yn {{postcode}}"
+      "message": "Gallwch ailgylchu {{material}} yn {{postcode}}"
     },
     "no_kerbside": {
       "title": "Ysywaeth...",
-      "message": "Ni allwch roi {{material}} yn eich cartref yn ailgylchu yn {{postcode}} ar hyn o bryd, bydd angen i chi fynd â nhw i'ch <a href='http://walesrecycles.org.uk/cy/lleoliad-ailgylchu-1?rlw-initial-path=places%2Fresults%2F{{postcode}}%3Fmaterials%3D{{materials}}' target='_blank' rel='noopener noreferrer'>lleoliad ailgylchu agosaf</a>",
-      "list_title": "Ond dyma rai pethau y gallwch chi eu hailgylchu gartref:"
+      "message": "Ni allwch ailgylchu {{material}} yn {{postcode}}, bydd angen ichi fynd â nhw i’ch",
+      "list_title": "Dyma rai pethau y gallwch eu hailgylchu:"
     }
   }
 }

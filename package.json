@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "cross-fetch": "3.0.4",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "preact": "^8.5.2",
     "preact-compat": "3.19.0",
     "preact-habitat": "^3.1.0",

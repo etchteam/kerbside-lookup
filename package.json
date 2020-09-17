@@ -43,7 +43,7 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
-    "cross-fetch": "3.0.4",
+    "cross-fetch": "3.0.6",
     "lodash": "4.17.15",
     "preact": "^8.5.2",
     "preact-compat": "3.19.0",

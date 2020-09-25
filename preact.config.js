@@ -12,4 +12,6 @@ export default (config, env, helpers) => {
   }
 
   config.plugins.push(new Dotenv());
+
+  config.node.process = 'mock';
 };

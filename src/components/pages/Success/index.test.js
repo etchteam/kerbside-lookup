@@ -76,7 +76,7 @@ describe('Success', () => {
 
     process.nextTick(() => {
       wrapper.update();
-      expect(wrapper.find('h2').text()).toBe('Visit a local recycling location');
+      expect(wrapper.find('h2').text()).toBe('Unfortunately...');
       expect(wrapper.find('li').length).toBe(5);
       done();
     });

@@ -28,7 +28,7 @@ export default function Select({ children, state, loading, ...props }) {
 Select.propTypes = {
   children: PropTypes.node.isRequired,
   state: PropTypes.string,
-  loading: PropTypes.bool,
+  loading: PropTypes.bool
 };
 
 Select.defaultProps = {

@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 12.14.1
+        cache: 'npm'
+    - run: npm ci --prefer-offline --no-audit
+    - run: npm run build
+    - run: npm test
+    - run: npx eslint src
+    - run: npm run dist

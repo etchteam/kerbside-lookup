@@ -38,7 +38,7 @@
     "jest-fetch-mock": "3.0.1",
     "microbundle": "0.11.0",
     "node-sass": "^7.0.0",
-    "preact-cli": "^2.0.2",
+    "preact-cli": "^3.4.1",
     "preact-widget-scripts": "^0.6.0",
     "sass-loader": "^6.0.6"
   },

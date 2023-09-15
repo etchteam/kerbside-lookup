@@ -26,9 +26,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Compile the release
+        run: npm run dist
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run release

@@ -1,5 +1,3 @@
-import 'promise-polyfill/dist/polyfill';
-import 'cross-fetch/polyfill';
 import { h, Component } from 'preact';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'preact-i18n';

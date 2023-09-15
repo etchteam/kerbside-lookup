@@ -10,7 +10,7 @@
   "scripts": {
     "test": "NODE_ENV=test jest",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "preact build --prerender false --brotli true --template src/index.ejs --sw false",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider preact build --prerender false --brotli true --template src/index.ejs --sw false",
     "serve": "npm run build && preact serve",
     "dev": "preact watch --template src/index.ejs",
     "dist": "microbundle --entry src/index.js --external none --define process.env.NODE_ENV=production,process.env.API_HOST=https://rl.recyclenow.com",

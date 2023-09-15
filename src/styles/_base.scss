@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin base() {
   color: $body-color;
   font-family: $font-family;
@@ -28,7 +30,7 @@
   h3,
   h4,
   h5 {
-    margin-bottom: $spacing-vertical-sm / 2;
+    margin-bottom: math.div($spacing-vertical-sm, 2);
   }
 
 

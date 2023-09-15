@@ -1,13 +1,3 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["standard", "standard-preact"],
-  "rules": {
-    "semi": [2, "always"],
-    "jsx-quotes": [1, "prefer-double"],
-    "space-before-function-paren": [1, {
-      "anonymous": "always",
-      "named": "never",
-      "asyncArrow": "always"
-  }]
-  }
+  "extends": ["@etchteam", "standard-preact"]
 }

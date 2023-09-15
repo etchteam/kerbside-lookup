@@ -1,11 +1,8 @@
 const Dotenv = require('dotenv-webpack');
 
-export default (config, env, helpers) => {
+export default (config, env) => {
   delete config.entry.polyfills;
   config.output.filename = '[name].js';
-
-  const { plugin } = helpers.getPluginsByName(config, 'ExtractTextPlugin')[0];
-  plugin.options.disable = true;
 
   if (env.production) {
     config.output.libraryTarget = 'umd';

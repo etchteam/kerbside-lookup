@@ -1,11 +1,11 @@
 /* eslint-env node, jest */
 /* global fetch */
-import { h } from 'preact';
 import { mount } from 'enzyme';
-import Success from './index';
 
 import kerbside from './__mocks__/kerbside';
 import noKerbside from './__mocks__/no_kerbside';
+
+import Success from './index';
 
 describe('Success', () => {
   beforeEach(() => {
@@ -20,7 +20,8 @@ describe('Success', () => {
         postcode=""
         material=""
         token=""
-      />);
+      />
+    );
 
     expect(wrapper.exists('.klw-loading')).toBe(true);
   });
@@ -34,7 +35,8 @@ describe('Success', () => {
         postcode=""
         material=""
         token=""
-      />);
+      />
+    );
 
     expect(fetch.mock.calls.length).toBe(1);
     process.nextTick(() => {
@@ -53,7 +55,8 @@ describe('Success', () => {
         postcode=""
         material=""
         token=""
-      />);
+      />
+    );
 
     process.nextTick(() => {
       wrapper.update();
@@ -72,7 +75,8 @@ describe('Success', () => {
         postcode=""
         material=""
         token=""
-      />);
+      />
+    );
 
     process.nextTick(() => {
       wrapper.update();

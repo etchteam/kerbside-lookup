@@ -5,19 +5,22 @@ const kerbside = {
     {
       icon: 'black-box.png',
       name: 'Flats',
-      action: 'Place in your black recycling box'
+      action: 'Place in your black recycling box',
     },
     {
       icon: 'black-wheely-bin.png',
       name: 'Kerbside Properties',
-      action: 'Place in your black wheely bin'
-    }
+      action: 'Place in your black wheely bin',
+    },
   ],
   available_materials: [
-    'Plastic Bags', 'Glass', 'Batteries',
-    'Cardboard/paper', 'Metal Packaging/foil',
-    'Garden Waste'
-  ]
+    'Plastic Bags',
+    'Glass',
+    'Batteries',
+    'Cardboard/paper',
+    'Metal Packaging/foil',
+    'Garden Waste',
+  ],
 };
 
 export default kerbside;

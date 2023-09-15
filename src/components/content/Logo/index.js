@@ -1,12 +1,11 @@
-import { h } from 'preact';
-import PropTypes from 'prop-types';
 import { Text, withText } from 'preact-i18n';
+import PropTypes from 'prop-types';
 
-import LogoEN from './LogoEN';
 import LogoCY from './LogoCY';
+import LogoEN from './LogoEN';
 
 const Logo = withText({
-  locale: <Text id="locale">en</Text>
+  locale: <Text id="locale">en</Text>,
 })(({ brand, locale }) => {
   const path = locale === 'cy' ? '/cy' : '';
   return brand === 'rfw' ? (
@@ -32,7 +31,7 @@ const Logo = withText({
 
 Logo.propTypes = {
   brand: PropTypes.string.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
 };
 
 export default Logo;

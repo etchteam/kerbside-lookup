@@ -1,7 +1,7 @@
 /* eslint-env node, jest */
 
-import { h } from 'preact';
 import { mount } from 'enzyme';
+
 import App from './index';
 
 describe('App', () => {

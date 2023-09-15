@@ -1,14 +1,9 @@
-import { h } from 'preact';
 import PropTypes from 'prop-types';
 
 export default function Item({ children }) {
-  return (
-    <li className="klw-list__item">
-      {children}
-    </li>
-  );
+  return <li className="klw-list__item">{children}</li>;
 }
 
 Item.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

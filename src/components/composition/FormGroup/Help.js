@@ -1,9 +1,11 @@
-import { h } from 'preact';
 import PropTypes from 'prop-types';
 
 export default function Help({ children, state, ...props }) {
   return (
-    <div className={`klw-form-group__help klw-form-group__help--${state}`} {...props}>
+    <div
+      className={`klw-form-group__help klw-form-group__help--${state}`}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -11,9 +13,9 @@ export default function Help({ children, state, ...props }) {
 
 Help.propTypes = {
   children: PropTypes.node.isRequired,
-  state: PropTypes.string
+  state: PropTypes.string,
 };
 
 Help.defaultProps = {
-  state: 'danger'
+  state: 'danger',
 };

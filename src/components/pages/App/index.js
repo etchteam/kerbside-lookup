@@ -1,16 +1,14 @@
-import { h, Component } from 'preact';
-import PropTypes from 'prop-types';
+import { Component } from 'preact';
 import { IntlProvider } from 'preact-i18n';
-
-import Transition from '../../canvas/Transition';
-
-import Form from '../Form';
-import Success from '../Success';
-import Error from '../Error';
-
-import '../../../styles/main.scss';
+import PropTypes from 'prop-types';
 
 import welsh from '../../../lib/cy.json';
+import Transition from '../../canvas/Transition';
+import Error from '../Error';
+import Form from '../Form';
+import Success from '../Success';
+
+import '../../../styles/main.scss';
 
 export default class App extends Component {
   constructor(props) {
@@ -20,7 +18,7 @@ export default class App extends Component {
       route: 'form',
       props: {},
       enter: false,
-      leave: false
+      leave: false,
     };
 
     this.loadRoute = this.loadRoute.bind(this);
@@ -42,7 +40,16 @@ export default class App extends Component {
   render() {
     const { route, props, enter, leave } = this.state;
     // From the habitat options
-    const { materials, postcode, button, placeholder, locale, token, apihost, brand } = this.props;
+    const {
+      materials,
+      postcode,
+      button,
+      placeholder,
+      locale,
+      token,
+      apihost,
+      brand,
+    } = this.props;
 
     const routes = {
       form: (
@@ -76,7 +83,7 @@ export default class App extends Component {
           brand={brand}
           {...props}
         />
-      )
+      ),
     };
 
     return (
@@ -97,12 +104,12 @@ App.propTypes = {
   token: PropTypes.string.isRequired,
   locale: PropTypes.string,
   apihost: PropTypes.string,
-  brand: PropTypes.string
+  brand: PropTypes.string,
 };
 
 App.defaultProps = {
   materials: [],
   postcode: '',
   locale: 'en',
-  brand: 'rn'
+  brand: 'rn',
 };

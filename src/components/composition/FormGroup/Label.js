@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PropTypes from 'prop-types';
 
 export default function Label({ children, ...props }) {
@@ -10,5 +9,5 @@ export default function Label({ children, ...props }) {
 }
 
 Label.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

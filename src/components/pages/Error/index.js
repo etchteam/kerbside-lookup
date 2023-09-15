@@ -1,12 +1,11 @@
-import { h } from 'preact';
-import PropTypes from 'prop-types';
 import { Text } from 'preact-i18n';
+import PropTypes from 'prop-types';
 
 import Container from '../../canvas/Container';
-import OutLink from '../../controls/OutLink';
 import PoweredBy from '../../content/PoweredBy';
 import Title from '../../content/Title';
 import Back from '../../controls/Back';
+import OutLink from '../../controls/OutLink';
 
 export default function Error({ code, title, message, loadRoute, brand }) {
   const badCodes = [401, 403];
@@ -14,21 +13,24 @@ export default function Error({ code, title, message, loadRoute, brand }) {
   return (
     <Container>
       {canSearchAgain ? (
-        <Back onClick={() => loadRoute('form')}><Text id="error.back">Search again</Text></Back>
+        <Back onClick={() => loadRoute('form')}>
+          <Text id="error.back">Search again</Text>
+        </Back>
       ) : null}
       <Title as="h2" state="danger">
         {title || <Text id="error.title">Oops</Text>}
       </Title>
 
       <p>
-        {message || <Text id="error.message">Something went wrong when trying to retrieve your results.</Text>}
+        {message || (
+          <Text id="error.message">
+            Something went wrong when trying to retrieve your results.
+          </Text>
+        )}
       </p>
 
       <p>
-        <Text id="error.more">
-          Find out more about recycling near you at
-        </Text>
-        {' '}
+        <Text id="error.more">Find out more about recycling near you at</Text>{' '}
         <OutLink brand={brand} />
       </p>
 
@@ -43,5 +45,5 @@ Error.propTypes = {
   message: PropTypes.node,
   loadRoute: PropTypes.func.isRequired,
   locale: PropTypes.string.isRequired,
-  brand: PropTypes.string.isRequired
+  brand: PropTypes.string.isRequired,
 };

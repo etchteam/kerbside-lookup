@@ -1,7 +1,5 @@
 
 /* eslint-disable import/first, no-unused-vars */
-import poly from 'preact-cli/lib/lib/webpack/polyfills';
-
 import { h } from 'preact';
 import habitat from 'preact-habitat';
 

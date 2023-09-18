@@ -1,9 +1,9 @@
 import { h } from 'preact';
-import PropTypes from 'prop-types';
 import { Text, withText } from 'preact-i18n';
+import PropTypes from 'prop-types';
 
 const OutLink = withText({
-  locale: <Text id="locale">en</Text>
+  locale: <Text id="locale">en</Text>,
 })(({ brand, locale }) => {
   const path = locale === 'cy' ? '/cy/alla-i-ei-ailgylchu' : '/what-to-do-with';
   const text = locale === 'cy' ? 'Cymru yn ailgylchu' : 'Wales recycles';
@@ -28,7 +28,7 @@ const OutLink = withText({
 
 OutLink.propTypes = {
   brand: PropTypes.string.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
 };
 
 export default OutLink;

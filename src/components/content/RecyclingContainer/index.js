@@ -9,7 +9,9 @@ export default function RecyclingContainer({ title, image, content }) {
       <div className="klw-recycling-container__image">
         {image ? (
           <img src={image} alt={title} role="presentation" />
-        ) : <span className="klw-recycling-container__no-image" />}
+        ) : (
+          <span className="klw-recycling-container__no-image" />
+        )}
       </div>
       <div className="klw-recycling-container__content">
         <Title as="h3">{title}</Title>
@@ -22,5 +24,5 @@ export default function RecyclingContainer({ title, image, content }) {
 RecyclingContainer.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired
+  content: PropTypes.string.isRequired,
 };

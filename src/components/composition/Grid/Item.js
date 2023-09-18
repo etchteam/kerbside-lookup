@@ -10,5 +10,5 @@ export default function Item({ children, ...props }) {
 }
 
 Item.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

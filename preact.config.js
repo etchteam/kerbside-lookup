@@ -1,11 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const Dotenv = require('dotenv-webpack');
 
-export default (config, env, helpers) => {
+const preactConfig = (config, env) => {
   delete config.entry.polyfills;
   config.output.filename = '[name].js';
-
-  const { plugin } = helpers.getPluginsByName(config, 'ExtractTextPlugin')[0];
-  plugin.options.disable = true;
 
   if (env.production) {
     config.output.libraryTarget = 'umd';
@@ -15,3 +13,5 @@ export default (config, env, helpers) => {
 
   config.node.process = 'mock';
 };
+
+export default preactConfig;

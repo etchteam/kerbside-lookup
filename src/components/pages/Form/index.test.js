@@ -1,10 +1,9 @@
-/* eslint-env node, jest */
-/* global fetch */
-import { h } from 'preact';
 import { mount } from 'enzyme';
-import Form from './index';
+import { h } from 'preact';
 
 import materials from './__mocks__/materials';
+
+import Form from './index';
 
 describe('Form', () => {
   beforeEach(() => {

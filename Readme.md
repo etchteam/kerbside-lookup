@@ -13,8 +13,8 @@ Contact the [RecycleNow Digital Team](mailto:digitalteam@wrap.co.uk) for API Acc
 Include the script and CSS (optional) from jsdeliver:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/etchteam/kerbside-lookup@1.0.0/dist/index.css" />
-<script src="https://cdn.jsdelivr.net/gh/etchteam/kerbside-lookup@1.0.0/dist/index.min.js" async defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/etchteam/kerbside-lookup/dist/index.css" />
+<script src="https://cdn.jsdelivr.net/gh/etchteam/kerbside-lookup/dist/index.min.js" async defer></script>
 ```
 
 Add the following `div` in the location you want the widget to appear:

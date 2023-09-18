@@ -1,6 +1,6 @@
 import { h } from 'preact';
-import PropTypes from 'prop-types';
 import { Text } from 'preact-i18n';
+import PropTypes from 'prop-types';
 
 import Logo from '../Logo';
 
@@ -18,5 +18,5 @@ export default function PoweredBy({ brand }) {
 }
 
 PoweredBy.propTypes = {
-  brand: PropTypes.string.isRequired
+  brand: PropTypes.string.isRequired,
 };

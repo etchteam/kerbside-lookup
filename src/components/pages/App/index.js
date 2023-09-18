@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import welsh from '../../../lib/cy.json';
 import Transition from '../../canvas/Transition';
-import Error from '../Error';
+import ErrorPage from '../Error';
 import Form from '../Form';
 import Success from '../Success';
 
@@ -77,7 +77,7 @@ export default class App extends Component {
         />
       ),
       error: (
-        <Error
+        <ErrorPage
           loadRoute={this.loadRoute}
           locale={locale}
           brand={brand}

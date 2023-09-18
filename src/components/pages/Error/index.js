@@ -7,7 +7,7 @@ import Title from '../../content/Title';
 import Back from '../../controls/Back';
 import OutLink from '../../controls/OutLink';
 
-export default function Error({ code, title, message, loadRoute, brand }) {
+export default function ErrorPage({ code, title, message, loadRoute, brand }) {
   const badCodes = [401, 403];
   const canSearchAgain = !(code && badCodes.indexOf(code) > -1);
   return (

@@ -1,6 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const Dotenv = require('dotenv-webpack');
 
-export default (config, env) => {
+const preactConfig = (config, env) => {
   delete config.entry.polyfills;
   config.output.filename = '[name].js';
 
@@ -12,3 +13,5 @@ export default (config, env) => {
 
   config.node.process = 'mock';
 };
+
+export default preactConfig;

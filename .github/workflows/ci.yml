@@ -44,4 +44,4 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
     - run: npm ci --prefer-offline --no-audit
-    - run: npx eslint src
+    - run: npx --no-install eslint .

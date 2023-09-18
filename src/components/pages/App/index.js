@@ -1,4 +1,4 @@
-import { Component } from 'preact';
+import { h, Component } from 'preact';
 import { IntlProvider } from 'preact-i18n';
 import PropTypes from 'prop-types';
 

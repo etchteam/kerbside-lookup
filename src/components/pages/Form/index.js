@@ -1,6 +1,6 @@
 /* global fetch */
 import find from 'lodash/find';
-import { Component } from 'preact';
+import { h, Component } from 'preact';
 import { Text, withText } from 'preact-i18n';
 import PropTypes from 'prop-types';
 import isValidPostcode from 'uk-postcode-validator';

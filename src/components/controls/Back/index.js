@@ -1,3 +1,5 @@
+import { h } from 'preact';
+
 function Icon() {
   return (
     <svg

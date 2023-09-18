@@ -1,5 +1,5 @@
 /* global fetch */
-import { Component } from 'preact';
+import { h, Component } from 'preact';
 import { Text, MarkupText } from 'preact-i18n';
 import PropTypes from 'prop-types';
 

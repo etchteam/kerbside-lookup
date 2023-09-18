@@ -1,3 +1,4 @@
+import { h } from 'preact';
 import { Text } from 'preact-i18n';
 import PropTypes from 'prop-types';
 

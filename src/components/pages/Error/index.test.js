@@ -1,6 +1,5 @@
-/* eslint-env node, jest */
-
 import { mount } from 'enzyme';
+import { h } from 'preact';
 
 import ErrorPage from './index';
 

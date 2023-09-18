@@ -1,6 +1,5 @@
-/* eslint-env node, jest */
-/* global fetch */
 import { mount } from 'enzyme';
+import { h } from 'preact';
 
 import kerbside from './__mocks__/kerbside';
 import noKerbside from './__mocks__/no_kerbside';

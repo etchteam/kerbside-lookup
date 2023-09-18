@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-imports
+import { h } from 'preact';
 import { Text, withText } from 'preact-i18n';
 import PropTypes from 'prop-types';
 

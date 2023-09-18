@@ -1,3 +1,4 @@
+import { h } from 'preact';
 import PropTypes from 'prop-types';
 
 export default function Item({ children, ...props }) {

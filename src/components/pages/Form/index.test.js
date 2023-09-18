@@ -1,6 +1,5 @@
-/* eslint-env node, jest */
-/* global fetch */
 import { mount } from 'enzyme';
+import { h } from 'preact';
 
 import materials from './__mocks__/materials';
 

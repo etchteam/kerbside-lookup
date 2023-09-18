@@ -11,7 +11,6 @@ module.exports = {
     ],
   ],
   plugins: [
-    '@babel/plugin-transform-modules-commonjs',
     '@babel/plugin-transform-object-assign',
     '@babel/plugin-transform-react-constant-elements',
     'babel-plugin-transform-react-remove-prop-types',

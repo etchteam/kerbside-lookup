@@ -1,10 +1,8 @@
 # The Kerbside Lookup Widget
 Powered by [RecycleNow](https://recyclenow.com)
 
-[![Build Status](https://travis-ci.com/etchteam/kerbside-lookup.svg?branch=master)](https://travis-ci.com/etchteam/kerbside-lookup)
 [![Known Vulnerabilities](https://snyk.io/test/github/etchteam/kerbside-lookup/badge.svg)](https://snyk.io/test/github/etchteam/kerbside-lookup)
-[![Maintainability](https://api.codeclimate.com/v1/badges/b3f4691dfc9626559dd8/maintainability)](https://codeclimate.com/github/etchteam/kerbside-lookup/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b3f4691dfc9626559dd8/test_coverage)](https://codeclimate.com/github/etchteam/kerbside-lookup/test_coverage)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=etchteam_kerbside-lookup)](https://sonarcloud.io/summary/new_code?id=etchteam_kerbside-lookup)
 
 Contact the [RecycleNow Digital Team](mailto:digitalteam@wrap.co.uk) for API Access.
 

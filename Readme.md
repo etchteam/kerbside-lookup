@@ -1,8 +1,7 @@
 # The Kerbside Lookup Widget
 Powered by [RecycleNow](https://recyclenow.com)
 
-[![Known Vulnerabilities](https://snyk.io/test/github/etchteam/kerbside-lookup/badge.svg)](https://snyk.io/test/github/etchteam/kerbside-lookup)
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=etchteam_kerbside-lookup)](https://sonarcloud.io/summary/new_code?id=etchteam_kerbside-lookup)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=etchteam_kerbside-lookup&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=etchteam_kerbside-lookup)
 
 Contact the [RecycleNow Digital Team](mailto:digitalteam@wrap.co.uk) for API Access.
 

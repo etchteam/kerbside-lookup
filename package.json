@@ -47,7 +47,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-fetch-mock": "^3.0.3",
     "microbundle": "^0.15.1",
-    "preact-cli": "^3.5.0",
+    "preact-cli": "^3.5.1",
     "preact-widget-scripts": "^0.6.0",
     "sass": "^1.67.0",
     "sass-loader": "^10.2.0",
